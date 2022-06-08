@@ -1,0 +1,58 @@
+create table useer (
+	id_user int primary key,
+	nom_user varchar(55),
+	prenom_user varchar(55),
+	email_user varchar (55),
+	pwd_user varchar (55)
+)
+
+insert into useer (id_user,nom_user,prenom_user,email_user,pwd_user)
+values (1,'bilal','elbahja','bilal@mak.com','makmak43')
+
+
+create table categorie (
+	ref_categorie varchar(50) primary key,
+	nom_categorie varchar (50)
+)
+
+
+insert into categorie (ref_categorie,nom_categorie)
+values ('j321','beaute')
+
+
+
+create table produits (
+	ref_produit varchar(55) primary key,
+	nom_produit varchar (50),
+	type_produit varchar (50),
+	Qte_produit int ,
+	prix_produit float,
+	ref_categorie varchar(55)  REFERENCES categorie(ref_categorie)
+)
+
+drop table produits
+drop table categorie
+
+
+
+
+insert into produits (ref_produit,nom_produit,type_produit,Qte_produit,prix_produit,ref_categorie)
+values ('j131','Aragane','cosmétique',59,1200,'j321')
+
+insert into produits (ref_produit,nom_produit,type_produit,Qte_produit,prix_produit,ref_categorie)
+values ('j132','Aragane','cosmétique',59,1200,'j321')
+
+insert into produits (ref_produit,nom_produit,type_produit,Qte_produit,prix_produit,ref_categorie)
+values ('j133','Aragane','cosmétique',59,1200,'j321')
+
+insert into produits (ref_produit,nom_produit,type_produit,Qte_produit,prix_produit,ref_categorie)
+values ('j134','Aragane','cosmétique',59,1200,'j321')
+
+
+
+select * from categorie
+select * from produits
+select * from useer
+select * from categorie  join produits on  produits.ref_categorie = categorie.ref_categorie;
+
+
