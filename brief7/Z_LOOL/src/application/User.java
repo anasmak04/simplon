@@ -4,15 +4,16 @@ public class User {
 	
 	
 	private int id;
-	private String nom,prenom,mail,Adresse,ville,pays;
-	public User(int id, String nom, String prenom, String mail, String adresse, String ville, String pays) {
+	private String nom,prenom,mail,Adresse,ville,pays,pasword;
+	public User(int id, String nom, String prenom, String mail, String adresse, String ville, String pays,String pasword) {
 		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.mail = mail;
 		Adresse = adresse; 
 		this.ville = ville;
-		this.pays = pays;
+		this.pays = pays; 
+		this.pasword = pasword;
 	}
 	
 	
@@ -62,5 +63,13 @@ public class User {
 	}
 	public void setPays(String pays) {
 		this.pays = pays;
+	}
+	
+	
+	public String getPasword() {
+		return pasword;
+	}
+	public void setPasword(String pasword) {
+		this.pasword = pasword;
 	}
 }

@@ -12,10 +12,10 @@ import application.User;
 public class DAO implements InterfaceDao{
   
 	@Override
-	public boolean insert(User user) {
+	public boolean insert(User user) { 
 		// TODO Auto-generated method stub
-		  try {
-		      PreparedStatement stmt = connection.prepareStatement("INSERT INTO utilisateur (id,name,prenom,mail,adresse,ville,pays) VALUES (?,?, ?, ?, ?, ?,?)");
+		  try { 
+		      PreparedStatement stmt = connection.prepareStatement("INSERT INTO utilisateur (id,name,prenom,mail,adresse,ville,pays,pasword) VALUES (?,?, ?, ?, ?, ?, ?,?)");
 		      stmt.setInt(1, user.getId());
 		      stmt.setString(2,user.getNom() );
 		      stmt.setString(3,user.getPrenom() );
@@ -23,6 +23,7 @@ public class DAO implements InterfaceDao{
 		      stmt.setString(5,user.getAdresse() );
 		      stmt.setString(6,user.getVille());
 		      stmt.setString(7,user.getPays());
+		      stmt.setString(8,user.getPasword());
 
 		      int i = stmt.executeUpdate();
 
@@ -43,7 +44,7 @@ public class DAO implements InterfaceDao{
 	public boolean update(int id,User user) {
 		// TODO Auto-generated method stub
 		 try {
-		        PreparedStatement stmt = connection.prepareStatement("UPDATE utilisateur SET name=?, prenom=?, mail=?, Adresse=?, ville=? ,pays=?  WHERE id=?");
+		        PreparedStatement stmt = connection.prepareStatement("UPDATE utilisateur SET name=?, prenom=?, mail=?, Adresse=?, ville=? ,pays=?, pasword=?  WHERE id=?");
 
 			      stmt.setString(1, user.getNom());
 			      stmt.setString(2, user.getPrenom());
@@ -51,7 +52,8 @@ public class DAO implements InterfaceDao{
 			      stmt.setString(4, user.getAdresse());
 			      stmt.setString(5,user.getVille());
 			      stmt.setString(6,user.getPays());
-			      stmt.setInt(7 ,user.getId());
+			      stmt.setString(7,user.getPasword());
+			      stmt.setInt(8 ,user.getId());
 		        int i = stmt.executeUpdate();
 		      if(i == 1) {
 		  	    return true;
@@ -109,6 +111,7 @@ public class DAO implements InterfaceDao{
 			user.setAdresse(resultSet.getString("adresse"));
 			user.setVille(resultSet.getString("ville"));
 			user.setPays(resultSet.getString("pays"));
+			user.setPasword(resultSet.getString("pasword"));
 			
 			users.add(user);
 			

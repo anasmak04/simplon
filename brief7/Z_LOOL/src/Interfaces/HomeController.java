@@ -22,7 +22,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 
 import javafx.scene.control.Label;
-
+import javafx.scene.control.PasswordField;
 import javafx.scene.layout.AnchorPane;
 
 import javafx.scene.input.MouseEvent;
@@ -50,6 +50,8 @@ public class HomeController implements Initializable {
 	@FXML
 	private TextField pays;
 	@FXML
+	private PasswordField pasword;
+	@FXML
 	private TableView <User> table;
 	@FXML
 	private TableColumn <User, Integer> id_column;
@@ -65,6 +67,8 @@ public class HomeController implements Initializable {
 	private TableColumn <User, String> ville_column;
 	@FXML
 	private TableColumn <User, String> pays_column;
+	@FXML
+	private TableColumn <User, String> pasowrd_column;
 	@FXML
 	private Button insert_btn;
 	@FXML
@@ -85,9 +89,9 @@ public class HomeController implements Initializable {
 	
 	
     private ObservableList<User> data = FXCollections.observableArrayList(
-			new User(266,"AYOUB","OUDON","anasdec@gmail.com","temara rabat12","rabat","maroc"),
-			new User(265,"AYOUB","OUDON","anasdec@gmail.com","temara rabat12","rabat","maroc"),
-			new User(262,"AYOUB","OUDON","anasdec@gmail.com","temara rabat12","rabat","maroc")
+//			new User(266,"AYOUB","OUDON","anasdec@gmail.com","temara rabat12","rabat","maroc"),
+//			new User(265,"AYOUB","OUDON","anasdec@gmail.com","temara rabat12","rabat","maroc"),
+//			new User(262,"AYOUB","OUDON","anasdec@gmail.com","temara rabat12","rabat","maroc")
 ); 
 	
 	
@@ -100,6 +104,7 @@ public class HomeController implements Initializable {
 		Adresse_column.setCellValueFactory(new PropertyValueFactory<User, String>("adresse"));
 		ville_column.setCellValueFactory(new PropertyValueFactory<User, String>("ville"));
    		pays_column.setCellValueFactory(new PropertyValueFactory<User, String>("pays"));
+   		pasowrd_column.setCellValueFactory(new PropertyValueFactory<User, String>("pasword"));
 		table.setItems(data);
 		table.refresh();
 		}
@@ -108,9 +113,7 @@ public class HomeController implements Initializable {
 	@FXML
 	public void updateAction(ActionEvent event) throws IOException {
 		 int userId = Integer.parseInt(id.getText());
-
-			User user = new User(userId,nom.getText(),prenom.getText(),mail.getText(),Adresse.getText(),ville.getText(),pays.getText());
-			DAO da = new DAO();
+			User user = new User(userId,nom.getText(),prenom.getText(),mail.getText(),Adresse.getText(),ville.getText(),pays.getText(),pasword.getText());
 			System.out.println(da.update(userId,user));	
 			 
 }
@@ -119,24 +122,23 @@ public class HomeController implements Initializable {
 	@FXML
 		public void insertAction(ActionEvent event) throws IOException {
         int userId = Integer.parseInt(id.getText());
-		User user = new User(userId,nom.getText(),prenom.getText(),mail.getText(),Adresse.getText(),ville.getText(),pays.getText());
-		DAO da = new DAO();
-		System.out.println(da.insert(user));			
+		User user = new User(userId,nom.getText(),prenom.getText(),mail.getText(),Adresse.getText(),ville.getText(),pays.getText(),pasword.getText());
+		System.out.println(da.insert(user));
 	}
 	
 	
 	@FXML
 	public void  delete_Action(ActionEvent event) throws IOException {
 		 int userId = Integer.parseInt(id.getText());
-		User user = new User(userId,nom.getText(),prenom.getText(),mail.getText(),Adresse.getText(),ville.getText(),pays.getText());
-		System.out.println(da.delete(userId));
+		new User(userId,nom.getText(),prenom.getText(),mail.getText(),Adresse.getText(),ville.getText(),pays.getText(),pasword.getText());
+		//System.out.println(da.delete(userId));
+		da.delete(userId);
 	} 
 	
 	@FXML
 	public void  select_Action(ActionEvent event) throws IOException {
 		System.out.println("helllo");
 		affiche();
-		
 	} 
 	
 	
