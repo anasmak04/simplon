@@ -1,4 +1,4 @@
-package application;
+package Interfaces;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,6 +16,7 @@ import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
 import Controller.DAO;
+import application.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -34,9 +35,9 @@ public class HomeController implements Initializable {
 	DAO da = new DAO();
 	@FXML
 	private AnchorPane container;
-	@FXML
+	@FXML 
 	private TextField id;
-	@FXML
+	@FXML 
 	private TextField nom;
 	@FXML
 	private TextField prenom;
@@ -93,7 +94,7 @@ public class HomeController implements Initializable {
 	public void affiche() {
 		data.addAll(da.select());
 		id_column.setCellValueFactory(new PropertyValueFactory<User, Integer>("id"));
-		nom_column.setCellValueFactory(new PropertyValueFactory<User, String>("name"));
+		nom_column.setCellValueFactory(new PropertyValueFactory<User, String>("nom"));
 		prenom_column.setCellValueFactory(new PropertyValueFactory<User, String>("prenom"));
 		mail_column.setCellValueFactory(new PropertyValueFactory<User, String>("mail"));
 		Adresse_column.setCellValueFactory(new PropertyValueFactory<User, String>("adresse"));
@@ -139,10 +140,9 @@ public class HomeController implements Initializable {
 	} 
 	
 	
-	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		affiche();
-
+ 
 	}
 }

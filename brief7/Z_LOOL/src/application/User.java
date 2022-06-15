@@ -10,7 +10,7 @@ public class User {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.mail = mail;
-		Adresse = adresse;
+		Adresse = adresse; 
 		this.ville = ville;
 		this.pays = pays;
 	}

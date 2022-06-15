@@ -13,5 +13,5 @@ public interface InterfaceDao {
 	public boolean update(int id,User user);
 	public String delete(int id);
 	public Set<User> select();
-	
+	 
 }

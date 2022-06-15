@@ -10,7 +10,7 @@ import java.util.Set;
 import application.User;
 
 public class DAO implements InterfaceDao{
-
+  
 	@Override
 	public boolean insert(User user) {
 		// TODO Auto-generated method stub
