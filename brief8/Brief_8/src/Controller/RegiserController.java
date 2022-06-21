@@ -1,9 +1,8 @@
-package Interfaces;
+package Controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import Controller.DAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -20,7 +19,7 @@ import javafx.scene.Scene;
 import models.User;
 public class RegiserController implements Initializable {
 
-	DAO dao = new DAO();
+	UserDao dao = new UserDao();
 	    @FXML
 	    private Button button;
 
@@ -38,7 +37,7 @@ public class RegiserController implements Initializable {
 			User user = new User(username.getText(),name.getText(),pasword.getText());
 			System.out.println(dao.insertUser(user));
 			
-	    	Parent  root= FXMLLoader.load(getClass().getResource("/Interfaces/Login.fxml"));
+	    	Parent  root= FXMLLoader.load(getClass().getResource("/Views/Login.fxml"));
 	    	Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
@@ -59,7 +58,14 @@ public class RegiserController implements Initializable {
 	  		
 	    }
 	    
-
+	    @FXML
+	    void forget_Action(ActionEvent event) throws IOException  {
+	    	Parent  root= FXMLLoader.load(getClass().getResource("/Views/Login.fxml"));
+	    	Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			Scene scene = new Scene(root);
+			stage.setScene(scene);
+			stage.show();
+	    }
 		@Override
 		public void initialize(URL arg0, ResourceBundle arg1) {
 			// TODO Auto-generated method stub

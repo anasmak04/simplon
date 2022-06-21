@@ -10,10 +10,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interfaces.LoginController">
+<AnchorPane fx:id="btn_create" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="523.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LoginController">
    <children>
-      <AnchorPane prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: royalblue;">
+      <AnchorPane prefHeight="523.0" prefWidth="200.0" style="-fx-background-color: royalblue;">
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="20.0" layoutY="179.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -49,5 +48,10 @@
             <Font name="Microsoft YaHei" size="25.0" />
          </font>
       </Text>
+      <Button fx:id="btn_create" layoutX="430.0" layoutY="475.0" mnemonicParsing="false" onAction="#create_Action" style="-fx-background-color: transparent; -fx-cursor: pointer;" text="you dont't have an account ? click here ?">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 import models.User;
 
-public class DAO implements InterfaceDao {
+public class UserDao implements User_Interface_Dao {
 
 	@Override
 	public boolean insertUser(User user) {
@@ -16,7 +16,7 @@ public class DAO implements InterfaceDao {
 		      stmt.setString(2,user.getNom() );
 		      stmt.setString(3,user.getPasword() );
 		      int i = stmt.executeUpdate();
-		      if(i == 1) {
+		      if(i == 1) { 
 		      return true;
 		      }
 			   	stmt.close();

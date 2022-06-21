@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.HomeController">
+   <children>
+      <Label layoutX="16.0" layoutY="155.0" prefHeight="22.0" prefWidth="77.0" text="Tache :">
+         <font>
+            <Font name="Agency FB Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tache_idd" layoutX="102.0" layoutY="151.0" prefHeight="26.0" prefWidth="200.0" />
+      <Label layoutX="16.0" layoutY="195.0" text="description :">
+         <font>
+            <Font name="Agency FB Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="description" layoutX="102.0" layoutY="191.0" prefHeight="26.0" prefWidth="200.0" />
+      <Label layoutX="15.0" layoutY="235.0" prefHeight="18.0" prefWidth="65.0" text="Status :">
+         <font>
+            <Font name="Agency FB Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="15.0" layoutY="275.0" prefHeight="18.0" prefWidth="65.0" text="Deadline :">
+         <font>
+            <Font name="Agency FB Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="15.0" layoutY="315.0" prefHeight="22.0" prefWidth="77.0" text="Categorie :">
+         <font>
+            <Font name="Agency FB Bold" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="add" layoutX="400.0" layoutY="148.0" mnemonicParsing="false" onAction="#add_Action" prefHeight="35.0" prefWidth="77.0" style="-fx-background-color: royalblue;" text="ADD" textFill="WHITE">
+         <font>
+            <Font name="Agency FB" size="18.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="121.0" fitWidth="123.0" layoutX="140.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../Downloads/to-do.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="update" layoutX="518.0" layoutY="148.0" mnemonicParsing="false" onAction="#update_Action" prefHeight="35.0" prefWidth="77.0" style="-fx-background-color: royalblue;" text="UPDATE" textFill="WHITE">
+         <font>
+            <Font name="Agency FB" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="select" layoutX="400.0" layoutY="228.0" mnemonicParsing="false" onAction="#select_Action" prefHeight="35.0" prefWidth="77.0" style="-fx-background-color: royalblue;" text="SELECT" textFill="WHITE">
+         <font>
+            <Font name="Agency FB" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="delete" layoutX="518.0" layoutY="227.0" mnemonicParsing="false" onAction="#delete_Action" prefHeight="35.0" prefWidth="77.0" style="-fx-background-color: royalblue;" text="DELETE" textFill="WHITE">
+         <font>
+            <Font name="Agency FB" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="LOGOUT" layoutX="717.0" layoutY="26.0" mnemonicParsing="false" onAction="#LOGOUT_Action" style="-fx-background-color: royalblue;" text="LOG OUT" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <TableView fx:id="Affiche" layoutX="12.0" layoutY="414.0" prefHeight="200.0" prefWidth="772.0">
+        <columns>
+          <TableColumn fx:id="tache_id" prefWidth="144.00006103515625" text="TACHE" />
+            <TableColumn fx:id="description_id" prefWidth="176.0" text="DESCRIPTION" />
+            <TableColumn fx:id="status_id" prefWidth="143.199951171875" text="STATUS" />
+            <TableColumn fx:id="deadline_id" prefWidth="116.800048828125" text="DEADLINE" />
+            <TableColumn fx:id="categorie_id" prefWidth="220.00006103515625" text="CATEGORIE" />
+        </columns>
+      </TableView>
+      <ChoiceBox fx:id="status_choiceboxe" layoutX="104.0" layoutY="232.0" prefHeight="26.0" prefWidth="200.0" />
+      <ChoiceBox fx:id="categorie_choicebox" layoutX="104.0" layoutY="315.0" prefHeight="26.0" prefWidth="200.0" />
+      <TextField fx:id="deadline" layoutX="104.0" layoutY="274.0" prefHeight="26.0" prefWidth="200.0" />
+   </children>
+</AnchorPane>

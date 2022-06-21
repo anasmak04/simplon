@@ -1,9 +1,22 @@
 package models;
 
+import java.sql.Date;
+
 public class Tache {
 		private String tache,description,status,deadline,nom_caegorie;
 
 		
+		
+
+		public Tache(String tache, String description, String status, String deadline, String nom_caegorie) {
+			super();
+			this.tache = tache;
+			this.description = description;
+			this.status = status;
+			this.deadline = deadline;
+			this.nom_caegorie = nom_caegorie;
+		}
+
 		public String getTache() {
 			return tache;
 		}

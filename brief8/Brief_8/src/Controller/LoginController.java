@@ -1,4 +1,4 @@
-package Interfaces;
+package Controller;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -32,14 +32,28 @@ public class LoginController implements Initializable{
 
 	    @FXML
 	    void btn_Actionn(ActionEvent event) throws IOException {
+	    	if(usernamee.getText().equals("Anas") && paswordd.getText().equals("123")) {
+  				
+				System.out.println("from login");
+		    	Parent  root= FXMLLoader.load(getClass().getResource("/Views/Home.fxml"));
+		    	Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+				Scene scene = new Scene(root);
+				stage.setScene(scene);
+				stage.show();	
+			}    
+			
+	    }
+	    
+	    @FXML
+	    void create_Action (ActionEvent event) throws IOException {
 	    	
-	    	Parent  root= FXMLLoader.load(getClass().getResource("/Interfaces/Home.fxml"));
+	    	Parent  root= FXMLLoader.load(getClass().getResource("/Views/Register.fxml"));
 	    	Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
-			stage.show();	    
-			
+			stage.show();	
 	    }
+	    
 
 		@Override
 		public void initialize(URL arg0, ResourceBundle arg1) {

@@ -6,7 +6,7 @@ import models.User;
 
 
 
-public interface InterfaceDao {
+public interface User_Interface_Dao {
 	
 	Connection connection = DbConnect.getConnection();
 
