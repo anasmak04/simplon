@@ -31,7 +31,8 @@ public class RegiserController implements Initializable {
 
 	    @FXML
 	    private TextField username;
-	   
+	    
+		Alert a = new Alert(AlertType.NONE);
 	    @FXML
 	    void btn_Action(ActionEvent event) throws IOException  {
 			User user = new User(username.getText(),name.getText(),pasword.getText());
@@ -43,19 +44,15 @@ public class RegiserController implements Initializable {
 			stage.setScene(scene);
 			stage.show();
 			
-//			Alert a = new Alert(AlertType.NONE);
-//	    	  
-//	  		if(name.getText().equals("anas")&& username.getText().equals("anaselmak") && pasword.getText().equals("321")) {
-//	  			
-//              a.setAlertType(AlertType.CONFIRMATION);
-//              a.show();
-//	  			
-//	  		}else {
-//	  			
-//	  			a.setAlertType(AlertType.ERROR);
-//	  			a.show();
-//	  		}
-	  		
+			
+			 if (name.getText().isEmpty() && username.getText().isEmpty()  && pasword.getText().isEmpty()) {
+	    		a.setAlertType(AlertType.ERROR);
+	  			a.show();
+	    	}
+			 
+//			 else if () {
+//				 
+//			 }
 	    }
 	    
 	    @FXML

@@ -81,9 +81,9 @@ public class HomeController implements Initializable {
     private TableColumn<Tache, String> categorie_id;
     
     
-    private String[] statu = {"Pas encore","En cours","Terminé"};
+    private String[] statu = {"Pas encore","En cours","TerminÃ©"};
     
-    private String[] Categ = {"pésentation","veille","recherche"};
+    private String[] Categ = {"pÃ©sentation","veille","recherche"};
  
     
   
