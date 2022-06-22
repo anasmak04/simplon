@@ -29,7 +29,7 @@ public class RegiserController implements Initializable {
 	    @FXML
 	    private PasswordField pasword;
 
-	    @FXML
+	    @FXML 
 	    private TextField username;
 	    
 		Alert a = new Alert(AlertType.NONE);
@@ -61,7 +61,7 @@ public class RegiserController implements Initializable {
 	    	Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
-			stage.show();
+			stage.show(); 
 	    }
 		@Override
 		public void initialize(URL arg0, ResourceBundle arg1) {

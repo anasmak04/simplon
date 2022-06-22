@@ -89,45 +89,45 @@ public class HomeController implements Initializable {
   
     @FXML
     void add_Action(ActionEvent event) {
-    	
-  		Tache tache1 = new Tache(tache.getText(),description.getText(),status_choiceboxe.getValue(), deadline.getText(), categorie_choicebox.getValue());
-  		System.out.println(dao.AddTache(tache1)); 
+  		Tache tachee = new Tache(tache.getText(),description.getText(),status_choiceboxe.getValue(), deadline.getText(), categorie_choicebox.getValue());
+  		dao.AddTache(tachee); 
     } 
 
-    @FXML
+    @FXML 
     void delete_Action(ActionEvent event) {
-		Tache tache1 = new Tache(tache.getText(),description.getText(),status_choiceboxe.getValue(), null, categorie_choicebox.getValue());
+		Tache tache1 = new Tache(tache.getText());
+		dao.delete(tache1);
 		
     }
-
+       
     @FXML
     void select_Action(ActionEvent event) {
-    	System.out.println("true");
-       }
-
+    	affiche();
+    	} 
+       
     @FXML
     void update_Action(ActionEvent event) {
-		Tache tache1 = new Tache(tache.getText(),description.getText(),status_choiceboxe.getValue(), null, categorie_choicebox.getValue());
-//		System.out.println(dao.UpdateTache(tache, tache1));
+	Tache tache1 = new Tache(tache.getText(),description.getText(),status_choiceboxe.getValue(), deadline.getText(), categorie_choicebox.getValue());
+	dao.UpdateTache(tache1);
     } 
     
     @FXML
     void  LOGOUT_Action(ActionEvent event) throws IOException {
     	Parent  root= FXMLLoader.load(getClass().getResource("/Views/Register.fxml"));
     	Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-		Scene scene = new Scene(root);
+		Scene scene = new Scene(root); 
 		stage.setScene(scene);
 		stage.show();	
-    }
+    } 
     
     private ObservableList<Tache> data = FXCollections.observableArrayList(
-			new Tache("projet","interface","En cours","2020-06-80","recherche"),
-			new Tache("projet1","interface","En cours","2020-06-80","recherche"),
-			new Tache("projet2","interface","En cours","2020-06-80","recherche")
+//			new Tache("projet","interface","En cours","2020-06-80","recherche"),
+//			new Tache("projet1","interface","En cours","2020-06-80","recherche"),
+//			new Tache("projet2","interface","En cours","2020-06-80","recherche")
 
 
 ); 
-    
+     
 	public void affiche() {
 		data.addAll(dao.select());
 		tache_id.setCellValueFactory(new PropertyValueFactory<Tache, String>("tache"));

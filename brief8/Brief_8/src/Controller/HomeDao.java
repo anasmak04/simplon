@@ -40,15 +40,15 @@ public class HomeDao implements Home_Interface_Dao {
 	}
 
 	@Override
-	public boolean UpdateTache(String tache, Tache tache1) {
+	public boolean UpdateTache(Tache tache) {
 		 try {
 		        PreparedStatement stmt = connection.prepareStatement("UPDATE tache SET  description=?, status=?, deadline=?, nom_caegorie=?   WHERE tache=?");
 
-			      stmt.setString(1,tache1.getDescription());
-			      stmt.setString(2, tache1.getStatus());
-			      stmt.setString(3, tache1.getDeadline());
-			      stmt.setString(4, tache1.getNom_caegorie());
-			      stmt.setString(5 ,tache1.getTache());
+			      stmt.setString(1,tache.getDescription());
+			      stmt.setString(2, tache.getStatus());
+			      stmt.setString(3, tache.getDeadline());
+			      stmt.setString(4, tache.getNom_caegorie());
+			      stmt.setString(5 ,tache.getTache()); 
 		        int i = stmt.executeUpdate();
 		      if(i == 1) {
 		  	    return true;
@@ -100,19 +100,20 @@ public class HomeDao implements Home_Interface_Dao {
 	}
 
 	@Override
-	public String delete(String tache) {        
+	public String delete(Tache tache) {        
 		 try {
 		        Statement stmt = connection.createStatement();
-		        int i = stmt.executeUpdate("DELETE FROM tache WHERE tache='" + tache + "'");
-
+		        int i = stmt.executeUpdate("delete from tache where tache = '" + tache.getTache() + "'");
+		        
 		      if(i == 1) {
 		        return "success";
 		      }
-			    stmt.close();
+			    stmt.close(); 
 			    connection.close();
 
 		    } catch (SQLException ex) {
 		        ex.printStackTrace();
+		        System.out.println("fuck you");
 		    }
 		    
 		    return "not success";

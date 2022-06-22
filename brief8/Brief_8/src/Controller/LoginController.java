@@ -25,7 +25,7 @@ public class LoginController implements Initializable{
 	
 		@FXML
 	    private Button button;
-
+ 
 	    @FXML
 	    private PasswordField paswordd;
 
@@ -48,6 +48,11 @@ public class LoginController implements Initializable{
 	    	else if (usernamee.getText().isEmpty() && paswordd.getText().isEmpty()) {
 	    		a.setAlertType(AlertType.ERROR);
 	  			a.show();
+	    	}
+	    	
+	    	else if (usernamee.getText().isEmpty() || paswordd.getText().isEmpty()) {
+	    		a.setAlertType(AlertType.WARNING);
+	  			a.show();  
 	    	}
 			
 	    }

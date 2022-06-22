@@ -1,8 +1,10 @@
 package application;
 	
+import Controller.HomeDao;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
+import models.Tache;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
@@ -23,8 +25,13 @@ public class Main extends Application {
 			
 		}
 	}
+	 
 	
 	public static void main(String[] args) {
 		launch(args);
+//		HomeDao dao = new HomeDao();
+//		Tache task = new Tache("task1");
+//		System.out.println(dao.delete(task)); 
+
 	}
 }

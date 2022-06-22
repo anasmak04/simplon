@@ -10,9 +10,9 @@ public interface Home_Interface_Dao {
 	Connection connection = DbConnect.getConnection();
 
 	public boolean AddTache(Tache tache);
-	public boolean UpdateTache(String tache,Tache tache1);
+	public boolean UpdateTache(Tache tache);
 	public Set<Tache> select();
-	public String delete(String tache);
+	public String delete(Tache tache); 
 
 
 }
