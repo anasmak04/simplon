@@ -11,5 +11,5 @@ public interface User_Interface_Dao {
 	
 	Connection connection = DbConnect.getConnection();
 
-	public boolean insertUser(User user);
+	public boolean insertUser(User user); 
 }

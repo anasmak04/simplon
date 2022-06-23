@@ -19,7 +19,7 @@ import javafx.scene.Scene;
 import models.User;
 public class RegiserController implements Initializable {
 
-	UserDao dao = new UserDao();
+	HomeDao dao = new HomeDao();
 	    @FXML
 	    private Button button;
 
@@ -36,7 +36,7 @@ public class RegiserController implements Initializable {
 	    @FXML
 	    void btn_Action(ActionEvent event) throws IOException  {
 			User user = new User(username.getText(),name.getText(),pasword.getText());
-			System.out.println(dao.insertUser(user));
+			dao.insertUser(user);
 			
 	    	Parent  root= FXMLLoader.load(getClass().getResource("/Views/Login.fxml"));
 	    	Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -48,11 +48,18 @@ public class RegiserController implements Initializable {
 			 if (name.getText().isEmpty() && username.getText().isEmpty()  && pasword.getText().isEmpty()) {
 	    		a.setAlertType(AlertType.ERROR);
 	  			a.show();
+	  			a.setTitle("ERROR");
+	  			a.setHeaderText("please enter your informations");
+	  			a.setContentText("you don't enter your informations");
 	    	}
 			 
-//			 else if () {
-//				 
-//			 }
+			 else if (name.getText().isEmpty() || username.getText().isEmpty()  || pasword.getText().isEmpty()) {
+		    		a.setAlertType(AlertType.ERROR);
+		  			a.show();
+		  			a.setTitle("ERROR");
+		  			a.setHeaderText("please enter your informations");
+		  			a.setContentText("you don't enter your informations");
+		    	}
 	    }
 	    
 	    @FXML
