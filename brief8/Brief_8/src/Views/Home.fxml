@@ -82,9 +82,14 @@
       <ChoiceBox fx:id="status_choiceboxe" layoutX="104.0" layoutY="232.0" prefHeight="26.0" prefWidth="200.0" />
       <ChoiceBox fx:id="categorie_choicebox" layoutX="104.0" layoutY="315.0" prefHeight="26.0" prefWidth="200.0" />
       <TextField fx:id="deadline" layoutX="104.0" layoutY="274.0" prefHeight="26.0" prefWidth="200.0" />
-      <ImageView fitHeight="301.0" fitWidth="279.0" layoutX="423.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="301.0" fitWidth="279.0" layoutX="506.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/20944361.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="58.0" fitWidth="91.0" layoutX="621.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/exit.png" />
          </image>
       </ImageView>
    </children>
