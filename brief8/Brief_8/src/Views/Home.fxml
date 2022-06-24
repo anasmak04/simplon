@@ -18,7 +18,7 @@
             <Font name="Agency FB Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="tache_idd" layoutX="102.0" layoutY="151.0" prefHeight="26.0" prefWidth="200.0" />
+      <TextField fx:id="tache" layoutX="102.0" layoutY="151.0" prefHeight="26.0" prefWidth="200.0" />
       <Label layoutX="16.0" layoutY="195.0" text="description :">
          <font>
             <Font name="Agency FB Bold" size="18.0" />
@@ -40,27 +40,27 @@
             <Font name="Agency FB Bold" size="18.0" />
          </font>
       </Label>
-      <Button fx:id="add" layoutX="400.0" layoutY="148.0" mnemonicParsing="false" onAction="#add_Action" prefHeight="35.0" prefWidth="77.0" style="-fx-background-color: royalblue;" text="ADD" textFill="WHITE">
+      <Button fx:id="add" layoutX="21.0" layoutY="366.0" mnemonicParsing="false" onAction="#add_Action" prefHeight="35.0" prefWidth="77.0" style="-fx-background-color: royalblue;" text="ADD" textFill="WHITE">
          <font>
             <Font name="Agency FB" size="18.0" />
          </font>
       </Button>
       <ImageView fitHeight="121.0" fitWidth="123.0" layoutX="140.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../Downloads/to-do.png" />
+            <Image url="@../images/to-do.png" />
          </image>
       </ImageView>
-      <Button fx:id="update" layoutX="518.0" layoutY="148.0" mnemonicParsing="false" onAction="#update_Action" prefHeight="35.0" prefWidth="77.0" style="-fx-background-color: royalblue;" text="UPDATE" textFill="WHITE">
+      <Button fx:id="update" layoutX="141.0" layoutY="367.0" mnemonicParsing="false" onAction="#update_Action" prefHeight="35.0" prefWidth="77.0" style="-fx-background-color: royalblue;" text="UPDATE" textFill="WHITE">
          <font>
             <Font name="Agency FB" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="select" layoutX="400.0" layoutY="228.0" mnemonicParsing="false" onAction="#select_Action" prefHeight="35.0" prefWidth="77.0" style="-fx-background-color: royalblue;" text="SELECT" textFill="WHITE">
+      <Button fx:id="select" layoutX="264.0" layoutY="367.0" mnemonicParsing="false" onAction="#select_Action" prefHeight="35.0" prefWidth="77.0" style="-fx-background-color: royalblue;" text="SELECT" textFill="WHITE">
          <font>
             <Font name="Agency FB" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="delete" layoutX="518.0" layoutY="227.0" mnemonicParsing="false" onAction="#delete_Action" prefHeight="35.0" prefWidth="77.0" style="-fx-background-color: royalblue;" text="DELETE" textFill="WHITE">
+      <Button fx:id="delete" layoutX="395.0" layoutY="367.0" mnemonicParsing="false" onAction="#delete_Action" prefHeight="35.0" prefWidth="77.0" style="-fx-background-color: royalblue;" text="DELETE" textFill="WHITE">
          <font>
             <Font name="Agency FB" size="18.0" />
          </font>
@@ -82,5 +82,10 @@
       <ChoiceBox fx:id="status_choiceboxe" layoutX="104.0" layoutY="232.0" prefHeight="26.0" prefWidth="200.0" />
       <ChoiceBox fx:id="categorie_choicebox" layoutX="104.0" layoutY="315.0" prefHeight="26.0" prefWidth="200.0" />
       <TextField fx:id="deadline" layoutX="104.0" layoutY="274.0" prefHeight="26.0" prefWidth="200.0" />
+      <ImageView fitHeight="301.0" fitWidth="279.0" layoutX="423.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/20944361.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

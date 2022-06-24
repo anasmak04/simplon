@@ -12,11 +12,11 @@ import Connexion.DbConnect;
 import models.Tache;
 import models.User;
 
-public class HomeDao implements Home_Interface_Dao , User_Interface_Dao{
-	Connection connection = DbConnect.getConnection();
+public class HomeDao implements Home_Interface_Dao , User_Interface_Dao , Interface_Verification{
+	Connection connection = DbConnect.getConnection(); 
 
 	@Override 	
-	public boolean AddTache(Tache tache) { 
+	public boolean AddTache(Tache tache) {  
 		 try { 
 		      PreparedStatement stmt = connection.prepareStatement("INSERT INTO tache (tache,description,status,deadline,nom_caegorie) VALUES (?,?, ?, ?, ?)");
 		      stmt.setString(1, tache.getTache());
@@ -81,7 +81,7 @@ public class HomeDao implements Home_Interface_Dao , User_Interface_Dao{
 		
 			tache.setTache(resultSet.getString("tache"));
 			tache.setDescription(resultSet.getString("description"));
-			tache.setStatus(resultSet.getString("status"));
+			tache.setStatus(resultSet.getString("status")); 
 			tache.setDeadline(resultSet.getString("deadline"));
 			tache.setNom_caegorie(resultSet.getString("nom_caegorie"));
 
@@ -143,6 +143,27 @@ public class HomeDao implements Home_Interface_Dao , User_Interface_Dao{
 
 		  return false;
 	}
+
+
+	@Override
+	public boolean verfication(String username, String pasword) {
+		try { 
+		      PreparedStatement stmt = connection.prepareStatement("select * from  utilisateur where  username= '"+ username +"',pasword= '"+ pasword +"' ");
+		      int i = stmt.executeUpdate();
+		      if(i == 1) { 
+		      return true;
+		      } 
+		      
+			   	stmt.close();
+			    connection.close();
+          
+		  } 
+		  	catch (SQLException ex) {
+	      ex.printStackTrace();
+	  }
+
+		  return false;
+}
 
 	}
 

@@ -22,22 +22,21 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 public class LoginController implements Initializable{
-	
-		@FXML
+	HomeDao dao = new HomeDao();
+		@FXML 
 	    private Button button;
  
 	    @FXML
 	    private PasswordField paswordd;
 
-	    @FXML
-	    private TextField usernamee;
+	    @FXML 
+	    private TextField usernamee; 
 	      Alert a = new Alert(AlertType.NONE);
 
 	    @FXML
 	    void btn_Actionn(ActionEvent event) throws IOException {
 	    	if(usernamee.getText().equals("Anas") && paswordd.getText().equals("123")) {
   				
-				System.out.println("from login");
 		    	Parent  root= FXMLLoader.load(getClass().getResource("/Views/Home.fxml"));
 		    	Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 				Scene scene = new Scene(root);
@@ -48,13 +47,52 @@ public class LoginController implements Initializable{
 	    	else if (usernamee.getText().isEmpty() && paswordd.getText().isEmpty()) {
 	    		a.setAlertType(AlertType.ERROR);
 	  			a.show();
-	    	}
+	  			a.setTitle("ERROR");
+	  			a.setHeaderText("please enter your informations");
+	  			a.setContentText("you don't enter your informations");
+	    	}  
+	    	
 	    	
 	    	else if (usernamee.getText().isEmpty() || paswordd.getText().isEmpty()) {
 	    		a.setAlertType(AlertType.WARNING);
 	  			a.show();  
 	    	}
-			
+	    	
+	    
+//	    else {  
+//	        
+//	        String nom = usernamee.getText();
+//	        String pass = paswordd.getText();
+//	       
+//	        boolean flag = dao.verfication(nom, pass);
+//	       
+//
+//	    try {
+//
+//	    if(flag) {
+//	     
+//	               
+//	            try {
+//	            	Parent  root= FXMLLoader.load(getClass().getResource("/Views/Home.fxml"));
+//			    	Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+//					Scene scene = new Scene(root);
+//					stage.setScene(scene);
+//					stage.show();	
+//	            }
+//	            catch(Exception e){
+//	            e.printStackTrace();
+//	            System.out.println("problem in link");
+//	            }
+//	   
+//	    }
+//
+//	    }
+//	    catch (Exception e) {
+//	    e.printStackTrace();
+//	    System.err.println("problem in lister...");
+//	    }
+//	    }
+	    		    	
 	    }
 	    
 	    @FXML
@@ -66,6 +104,9 @@ public class LoginController implements Initializable{
 			stage.setScene(scene);
 			stage.show();	
 	    }
+	    
+	    
+	    
 	    
 
 		@Override

@@ -22,7 +22,7 @@ public class RegiserController implements Initializable {
 	HomeDao dao = new HomeDao();
 	    @FXML
 	    private Button button;
-
+ 
 	    @FXML
 	    private TextField name;
 
@@ -51,6 +51,7 @@ public class RegiserController implements Initializable {
 	  			a.setTitle("ERROR");
 	  			a.setHeaderText("please enter your informations");
 	  			a.setContentText("you don't enter your informations");
+	  		
 	    	}
 			 
 			 else if (name.getText().isEmpty() || username.getText().isEmpty()  || pasword.getText().isEmpty()) {
@@ -59,7 +60,9 @@ public class RegiserController implements Initializable {
 		  			a.setTitle("ERROR");
 		  			a.setHeaderText("please enter your informations");
 		  			a.setContentText("you don't enter your informations");
+		  		
 		    	}
+			 
 	    }
 	    
 	    @FXML
