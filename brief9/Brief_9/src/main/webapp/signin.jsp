@@ -17,8 +17,8 @@
 	<div class="container__form container--signin">
 		<form action="#" class="form" id="form2">
 			<h2 class="form__title">Sign In</h2>
-			<input type="email" placeholder="Email" class="input" />
-			<input type="password" placeholder="Password" class="input" />
+			<input type="email" placeholder="Email" class="input" name="Email" required=""/>
+			<input type="password" placeholder="Password" class="input" name="Password" required=""/>
 			<a href="#" class="link">Forgot your password?</a>
 			<button class="btn">Sign In</button>
 		</form>

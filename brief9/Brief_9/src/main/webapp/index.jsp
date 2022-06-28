@@ -13,11 +13,11 @@
 	 
 	<!-- Sign Up -->
 	<div class="container__form container--signup">
-		<form action="#" class="form" id="form1">
+		<form action="/Myservlet" method="Post" class="form" id="form1">
 			<h2 class="form__title">Sign Up</h2>
-			<input type="text" placeholder="User" class="input" />
-			<input type="email" placeholder="Email" class="input" />
-			<input type="password" placeholder="Password" class="input" />
+			<input type="text" placeholder="User" class="input" name="User" required="" />
+			<input type="email" placeholder="Email" class="input" name="Email" required=""/>
+			<input type="password" placeholder="Password" class="input" name="Password" required=""/>
 			<button class="btn">Sign Up</button>
 		</form>
 	</div>
