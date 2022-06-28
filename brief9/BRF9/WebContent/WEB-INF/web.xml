@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" id="WebApp_ID" version="5.0">
+  <display-name>BRF9</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>SingUp</display-name>
+    <servlet-name>SingUp</servlet-name>
+    <servlet-class>Controller.SingUp</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SingUp</servlet-name>
+    <url-pattern>/SingUp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SgnIn</display-name>
+    <servlet-name>SgnIn</servlet-name>
+    <servlet-class>Controller.SgnIn</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SgnIn</servlet-name>
+    <url-pattern>/SgnIn</url-pattern>
+  </servlet-mapping>
+</web-app>
