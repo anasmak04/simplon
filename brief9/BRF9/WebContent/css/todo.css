@@ -61,6 +61,12 @@ body {
 
 .form h2{
 	margin-bottom:20px;
+	padding-top:12px;
+	font-size:40px;
+}
+
+.btns .btn{
+	margin:12px;
 }
 
 
@@ -109,5 +115,11 @@ body {
 	padding: 0.9rem 0.9rem;
 	margin: 0.5rem 0;
 	width: 100%;
+}
+
+.btns{
+	display:flex;
+	align-items:center;
+	justify-content:space-evenly;
 }
 

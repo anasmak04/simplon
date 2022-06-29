@@ -56,7 +56,6 @@ public class SgnIn extends HttpServlet {
 	        try {
 	            if(da.validate(us)) {
 	            	System.out.println("heree");
-
 	                response.sendRedirect("Todolist.jsp");
 
 	            } else {

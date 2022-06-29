@@ -29,4 +29,44 @@
     <servlet-name>SgnIn</servlet-name>
     <url-pattern>/SgnIn</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>TodoServlet</display-name>
+    <servlet-name>TodoServlet</servlet-name>
+    <servlet-class>Controller.TodoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TodoServlet</servlet-name>
+    <url-pattern>/TodoServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateServlet</display-name>
+    <servlet-name>UpdateServlet</servlet-name>
+    <servlet-class>Controller.UpdateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateServlet</servlet-name>
+    <url-pattern>/UpdateServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteServlet</display-name>
+    <servlet-name>DeleteServlet</servlet-name>
+    <servlet-class>Controller.DeleteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteServlet</servlet-name>
+    <url-pattern>/DeleteServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Select_servlet</display-name>
+    <servlet-name>Select_servlet</servlet-name>
+    <servlet-class>Controller.Select_servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Select_servlet</servlet-name>
+    <url-pattern>/Select_servlet</url-pattern>
+  </servlet-mapping>
 </web-app>
