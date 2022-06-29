@@ -10,11 +10,11 @@
 <body>
 
 		 <div class="container right-panel-active">
-	 
+		 
 	<!-- Sign Up -->
 	<div class="container__form container--signup">
 	
-		<form action="SingUp" method="get" class="form" id="form1">
+		<form action="SingUp" method="post" class="form" id="form1">
 			<h2 class="form__title">Sign Up</h2>
 			<input type="text" placeholder="User" class="input" name="User" required="" />
 			<input type="email" placeholder="Email" class="input" name="Email" required=""/>
@@ -23,7 +23,6 @@
 		</form>
 		
 	</div>
-
 	
 	<!-- Overlay -->
 	<div class="container__overlay">
@@ -33,6 +32,7 @@
 			</div>
 		</div>
 	</div>
+	
 </div>
 </body>
 </html>

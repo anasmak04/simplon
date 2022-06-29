@@ -11,10 +11,9 @@
 <body>
 <div class="container right-panel-active">
 	
-
 	<!-- Sign In -->
 	<div class="container__form container--signin">
-		<form action="SgnIn" method="get" class="form" id="form2">
+		<form action="SgnIn" method="post" class="form" id="form2">
 			<h2 class="form__title">Sign In</h2>
 			<input type="email" placeholder="Email" class="input" name="Email" required=""/>
 			<input type="password" placeholder="Password" class="input" name="Password" required=""/>

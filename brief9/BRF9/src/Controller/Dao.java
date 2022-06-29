@@ -1,6 +1,7 @@
 package Controller;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import Models.User;
@@ -29,7 +30,30 @@ public class Dao implements InterfaceDao {
 
 		  return false;
 	}
-
+		
+	
 	
 
+	@Override
+	public boolean validate(User user) {
+	 boolean status = false;
+        try {
+            // Step 2:Create a statement using connection object
+            PreparedStatement preparedStatement = connection.prepareStatement("select * from Useer where Email = ? and Passwordd = ? "); 
+            preparedStatement.setString(1, user.getEmail());
+            preparedStatement.setString(2, user.getPasswordd());
+
+            System.out.println(preparedStatement);
+            ResultSet rs = preparedStatement.executeQuery();
+            status = rs.next();
+
+        } 	catch (SQLException ex) {
+		      ex.printStackTrace();
+		  }
+        return status;
+	 
 }
+}
+
+
+	

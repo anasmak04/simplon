@@ -29,7 +29,9 @@ body {
 	height: 100vh;
 	place-items: center;
 }
-
+h1{
+	text-align:center;
+}
 .form__title {
 	font-weight: 300;
 	margin: 0;
