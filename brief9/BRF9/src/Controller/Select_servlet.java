@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import Models.Task;
 
@@ -37,36 +38,65 @@ public class Select_servlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String task = request.getParameter("task");
-        String description = request.getParameter("description");
-        String deadline = request.getParameter("deadline");
-       String status = request.getParameter("status");
-       String nom_categorie = request.getParameter("nom_categorie");
-       
-       Task tsk = new Task();
-        tsk.setTask(task);
-        tsk.setDescription(description);
-        tsk.setDeadline(deadline);
-        tsk.setStatus(status);
-        tsk.setNom_categorie(nom_categorie);
-        
-        try {
-           da.select();
-            System.out.println("select success");
-            
-    		PrintWriter print = response.getWriter();
-    		String task1 = request.getParameter("task");
-    		String description2 = request.getParameter("description");
-    		String status3 = request.getParameter("status");
-    		String deadline4 = request.getParameter("deadline");
-    		String nom_categorie5 = request.getParameter("nom_categorie");
-    		print.println(task1 + description2 + status3 + deadline4 + nom_categorie5);
-    		response.getWriter();
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("catch");
-        }
-		doGet(request, response);
-	}
+//		String task = request.getParameter("task");
+//        String description = request.getParameter("description");
+//        String deadline = request.getParameter("deadline");
+//       String status = request.getParameter("status");
+//       String nom_categorie = request.getParameter("nom_categorie");
+//       
+//       Task tsk = new Task();
+//        tsk.setTask(task);
+//        tsk.setDescription(description);
+//        tsk.setDeadline(deadline);
+//        tsk.setStatus(status);
+//        tsk.setNom_categorie(nom_categorie);
+//        
+//        try {
+//           da.select();
+//            System.out.println("select success");
+//            
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            System.out.println("catch");
+//        }
+		
+		
+		
+		
+		PrintWriter out=response.getWriter();  
+        out.println("<a href='index.html'>ADD NEW TASK</a>");  
+        out.println("<h1>LIST OF TASKS </h1>");  
+         
+        List<Task> list=da.getAll();  
+         
+        out.print("<div class=container-fluid>"
+        + "<table border='1'width='100%'");  
+        out.print("<tr>"
+        + "<th>task</th>"
+        + "<th>description</th>"
+        + "<th>deadline</th>"
+        + "<th>status</th>"
+        + "<th>nom categorie</th>");
+//        + "<th>Update</th>"
+//        + "<th>Delete</th></tr>");  
+        for(Task u:list){  
+         out.print("<tr>"
+          + "<td>"+u.getTask()+"</td>"
+          + "<td>"+u.getDescription()+"</td>"
+          + "<td>"+u.getDeadline()+"</td>"
+          + "<td>"+u.getStatus()+"</td>"  
+           + "<td>"+u.getNom_categorie()+"</td>"); 
 
-}
+               
+//                + "<td><a href='UpdateServlet?id="+u.getTask()+"'>Update</a></td>"
+//                + "<td><a href='DeleteServlet?id="+u.getTask()+"'>delete</a></td></tr>");  
+        }  
+        out.print("</table>"
+        + " </div>");  
+         
+        out.close();  
+    }  
+			
+//		doGet(request, response);
+	}

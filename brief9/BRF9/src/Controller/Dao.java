@@ -4,7 +4,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import Models.Task;
@@ -134,6 +136,34 @@ public class Dao implements InterfaceDao {
 	    return "not success";
 	}
 
+	public List<Task> getAll() {
+		List<Task> list=new ArrayList<Task>();  
+		         
+		       try{  
+			        PreparedStatement st = connection.prepareStatement("select * from Task");
+		           ResultSet rs=st.executeQuery();  
+		           while(rs.next()){  
+		               Task tsk = new Task();  
+//		               u.setId(rs.getInt(1));  
+//		               u.setNom(rs.getString(2));
+//		               u.setPrenom(rs.getString(3));
+//		               u.setNomUser(rs.getString(4));  
+//		               u.setEmail(rs.getString(5));  
+//		               u.setPassword(rs.getString(6));
+//		               list.add(u);
+		               tsk.setTask(rs.getString("task"));
+						tsk.setDescription(rs.getString("description"));
+						tsk.setStatus(rs.getString("status")); 
+					tsk.setDeadline(rs.getString("deadline"));
+					tsk.setNom_categorie(rs.getString("nom_categorie"));
+					list.add(tsk);
+		   }
+		       }
+		           catch (SQLException ex) {
+		        ex.printStackTrace();
+		    }
+			return list;
+	}
 
 
 

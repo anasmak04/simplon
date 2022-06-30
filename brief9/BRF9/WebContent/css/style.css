@@ -168,6 +168,7 @@ h1{
 	transition: transform 80ms ease-in;
 }
 
+
 .form > .btn {
 	margin-top: 1.5rem;
 }
@@ -215,4 +216,10 @@ h1{
 
 a{
 	text-decoration:none;
+}
+
+
+.forget{
+	margin-bottom:20px;
+	cursor:pointer;
 }

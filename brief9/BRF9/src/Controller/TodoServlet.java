@@ -57,11 +57,9 @@ public class TodoServlet extends HttpServlet {
             // TODO Auto-generated catch block
             e.printStackTrace();
             System.out.println("catch");
-
         }
 		
-		
-		doGet(request, response);
+        doGet(request, response); 
 	}
 
 }

@@ -19,6 +19,7 @@
 			<input type="text" placeholder="User" class="input" name="User" required="" />
 			<input type="email" placeholder="Email" class="input" name="Email" required=""/>
 			<input type="password" placeholder="Password" class="input" name="Password" required=""/>
+			<p class="forget">Do you have an account ?</p>
 			<button class="btn">Sign Up</button>
 		</form>
 		

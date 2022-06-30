@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>todolist</title>
+<title>Insert title here</title>
 <link rel="stylesheet" href="css/todo.css">
-:root {
+
+<style>:root {
 	/* COLORS */
 	--white: #e9e9e9;
 	--gray: #333;
@@ -24,17 +25,18 @@
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
 		Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
-	
+	</style>
+
 </head>
+
 <body>
-			<div class="container">
+<div class="container">
 				<div class="container--2">
-		
-			<form class="form" action="UpdateServlet" method="post">
+			<form class="form" action="Select_servlet" method="post">
 			<h2 class="form__title">Todolist</h2>
 			<input type="text" placeholder="task" class="input" name="task"  /> <br />
 			<input type="text" placeholder="description" class="input" name="description" /><br />
-			<input type="text" placeholder="deadline" class="input" name="deadline" /><br />
+			<input type="date" placeholder="deadline" class="input" name="deadline" /><br />
 			
 		<select name="status" id=""><br />
 	  	    <option value="" disabled selected>status</option>
@@ -56,7 +58,7 @@
 			<button class="btn">DELETE</button>
 			<button class="btn">SELECT</button>
 		</div>
-		<a href="SgnIn.jsp" style="	background-color: var(--blue);
+			<a href="SgnIn.jsp" style="	background-color: var(--blue);
 	background-image: linear-gradient(90deg, var(--blue) 0%, var(--lightblue) 74%);
 	border-radius: 20px;
 	border: 1px solid var(--blue);
@@ -68,6 +70,7 @@
 	padding: 0.9rem 4rem;
 	text-transform: uppercase;
 	transition: transform 80ms ease-in; margin-bottom:40px; margin-top:10px; text-decoration:none;">LOG OUT</a>
+		
 		</form>
 		</div>
 		</div>
