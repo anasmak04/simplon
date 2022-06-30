@@ -11,12 +11,11 @@
 <body>
 		<div class="container">
 				<div class="container--2">
-		
 		<form class="form" action="TodoServlet" method="post">
 			<h2 class="form__title">Todolist</h2>
 			<input type="text" placeholder="task" class="input" name="task"  /> <br />
 			<input type="text" placeholder="description" class="input" name="description" /><br />
-			<input type="text" placeholder="deadline" class="input" name="deadline" /><br />
+			<input type="date" placeholder="deadline" class="input" name="deadline" /><br />
 			
 	<select name="status" id=""><br />
 	  	    <option value="" disabled selected>status</option>

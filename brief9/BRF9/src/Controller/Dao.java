@@ -61,7 +61,7 @@ public class Dao implements InterfaceDao {
 	@Override
 	public boolean AddTache(Task task) {
 		try { 
-		      PreparedStatement stmt = connection.prepareStatement("INSERT INTO Task (task,description,status,deadline,nom_categorie) VALUES (?,?, ?, ?, ?)");
+		      PreparedStatement stmt = connection.prepareStatement("INSERT INTO Task (task,description,status,deadline,nom_categorie) VALUES (?,?, ?, ?::Date, ?)");
 		      stmt.setString(1, task.getTask());
 		      stmt.setString(2, task.getDescription());
 		      stmt.setString(3,task.getStatus());
@@ -91,7 +91,7 @@ public class Dao implements InterfaceDao {
 	@Override
 	public boolean UpdateTache(Task task) {
 		try {
-	        PreparedStatement stmt = connection.prepareStatement("UPDATE Task SET  description=?, status=?, deadline=?, nom_categorie=?   WHERE task=?");
+	        PreparedStatement stmt = connection.prepareStatement("UPDATE Task SET  description=?, status=?, deadline=?::Date, nom_categorie=?   WHERE task=?");
 
 		      stmt.setString(1,task.getDescription());
 		      stmt.setString(2, task.getStatus());
