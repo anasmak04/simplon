@@ -59,18 +59,17 @@ public class SgnIn extends HttpServlet {
 	                response.sendRedirect("Todolist.jsp");
 
 	            } else {
+	            	
 	                response.sendRedirect("Fake_Infos.jsp");
-
 	                HttpSession session = request.getSession();
-
+	                
 	            }
 
 	        } catch (Exception e) {
 	            // TODO Auto-generated catch block
 	            e.printStackTrace();
-	        }
-			
-
+	        }			
 	} 
+	
 
 }
