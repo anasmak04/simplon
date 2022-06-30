@@ -52,7 +52,7 @@ public class DeleteServlet extends HttpServlet {
         
         try {
             da.delete(tsk);
-            System.out.println("delete success");
+            response.sendRedirect("Success.jsp");
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

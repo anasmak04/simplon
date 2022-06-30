@@ -51,7 +51,8 @@ public class TodoServlet extends HttpServlet {
         
         try {
             da.AddTache(tsk);
-            System.out.println("add success");
+            response.sendRedirect("Success.jsp");
+
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

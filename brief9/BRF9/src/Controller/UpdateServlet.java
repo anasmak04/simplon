@@ -50,7 +50,7 @@ Dao da = new Dao();
         
         try {
             da.UpdateTache(tsk);
-            System.out.println("update success");
+            response.sendRedirect("Success.jsp");
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

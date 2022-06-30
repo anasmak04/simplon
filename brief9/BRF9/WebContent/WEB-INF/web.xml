@@ -69,4 +69,14 @@
     <servlet-name>Select_servlet</servlet-name>
     <url-pattern>/Select_servlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Switch_todolst</display-name>
+    <servlet-name>Switch_todolst</servlet-name>
+    <servlet-class>Controller.Switch_todolst</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Switch_todolst</servlet-name>
+    <url-pattern>/Switch_todolst</url-pattern>
+  </servlet-mapping>
 </web-app>
