@@ -23,12 +23,9 @@ public class Select_servlet extends HttpServlet {
 	Dao da = new Dao();
     public Select_servlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
@@ -71,7 +68,7 @@ public class Select_servlet extends HttpServlet {
         List<Task> list=da.getAll();  
          
         out.print("<div class=container-fluid>"
-        + "<table border='1'width='100%'");  
+        + "<table border='1'width='100%' background-color='red'");  
         out.print("<tr>"
         + "<th>task</th>"
         + "<th>description</th>"
@@ -86,7 +83,7 @@ public class Select_servlet extends HttpServlet {
           + "<td>"+u.getDescription()+"</td>"
           + "<td>"+u.getDeadline()+"</td>"
           + "<td>"+u.getStatus()+"</td>"  
-           + "<td>"+u.getNom_categorie()+"</td>"); 
+          + "<td>"+u.getNom_categorie()+"</td>"); 
 
                
 //                + "<td><a href='UpdateServlet?id="+u.getTask()+"'>Update</a></td>"
@@ -97,6 +94,6 @@ public class Select_servlet extends HttpServlet {
          
         out.close();  
     }  
-			
+	
 //		doGet(request, response);
 	}

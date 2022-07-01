@@ -92,6 +92,7 @@ public class Dao implements InterfaceDao {
 	@Override
 	public boolean UpdateTache(Task task) {
 		try {
+//			System.out.println(task.getDeadline());
 	        PreparedStatement stmt = connection.prepareStatement("UPDATE Task SET  description=?, status=?, deadline=?::Date, nom_categorie=?   WHERE task=?");
 
 		      stmt.setString(1,task.getDescription());

@@ -6,6 +6,7 @@
 <meta charset="ISO-8859-1">
 <title>todolist</title>
 <link rel="stylesheet" href="css/todo.css">
+<style>
 :root {
 	/* COLORS */
 	--white: #e9e9e9;
@@ -24,17 +25,18 @@
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
 		Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
+
+</style>
 	
 </head>
 <body>
 			<div class="container">
 				<div class="container--2">
-		
 			<form class="form" action="UpdateServlet" method="post">
 			<h2 class="form__title">Todolist</h2>
 			<input type="text" placeholder="task" class="input" name="task"  /> <br />
 			<input type="text" placeholder="description" class="input" name="description" /><br />
-			<input type="text" placeholder="deadline" class="input" name="deadline" /><br />
+			<input type="date" placeholder="deadline" class="input" name="deadline" /><br />
 			
 		<select name="status" id=""><br />
 	  	    <option value="" disabled selected>status</option>
@@ -42,7 +44,7 @@
     	<option value="en cours">en cours</option>
     	<option value="terminée">terminée</option>
   		</select>
-  
+  		
   		<select name="nom_categorie" id="">
   	    <option value="" disabled selected>nom_categorie</option>
     	<option value="pésentation">pésentation</option>

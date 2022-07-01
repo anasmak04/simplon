@@ -49,8 +49,10 @@ Dao da = new Dao();
         tsk.setNom_categorie(nom_categorie);
         
         try {
-            da.UpdateTache(tsk);
+        	da.UpdateTache(tsk);
+        	System.out.println(da.UpdateTache(tsk));
             response.sendRedirect("Success.jsp");
+            System.out.println("hhh");
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
