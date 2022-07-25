@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html  xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Employe List</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+        <a class="navbar-brand" href="/">Gestion Des Employe</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"></button>         
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+               
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html">Sing out</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<h3 class="text-center">List Des Employe</h3>
+
+<div class = "container">
+  <div class = "row">
+    <table class = "table table-bordered table-striped">
+     <thead>
+      <tr>
+       <th class="text-center" scope="col">#</th>
+       <th class="text-center">Nom</th>
+       <th class="text-center">Prenom</th>
+       <th class="text-center">Salaire</th>
+       <th class="text-center">Post</th>
+       <th class="text-center">Type Contrat</th>
+       <th scope="col" class="text-center">Action</th>
+      </tr>
+     </thead>
+     <tbody>
+     
+     <tr th:each="Employe : ${Employe}">
+      <th scope="row">1</th>
+      <td th:text="${Employe.nom}"></td>
+      <td th:text="${Employee.prenom}"></td>
+      <td th:text="${Employee.salaire}"></td>
+      <td th:text="${Employee.post}"></td>
+      <td th:text="${Employee.typeCont}"></td>
+      <td>
+      <a href="Add.html" class="btn btn-sm btn-primary">ADD</a>
+      <a href="update.html" class="btn btn-sm btn-success">Edit</a>
+      <a href="" class="btn btn-sm btn-danger">Delete</a>
+      
+      </td>
+     </tr>
+    </tbody>
+    </table>
+  </div>
+
+</body>
+</html>
