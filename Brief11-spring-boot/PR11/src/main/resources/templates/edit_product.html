@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>I</title>
+</head>
+<body>
+		<div align="center">
+        <h1>Edit Product</h1>
+        <br />
+        <form action="#" th:action="@{/save}" th:object="${employe}"
+            method="post">
+ 
+             <table border="0" cellpadding="10">
+                <tr>
+                    <td>id employe:</td>
+                    <td><input type="number" th:field="*{id_employees}" /></td>
+                </tr>
+                  <tr>
+                    <td>firstname:</td>
+                    <td><input type="text" th:field="*{firstname}" /></td>
+                </tr>
+                  <tr>
+                    <td>lastname:</td>
+                    <td><input type="text" th:field="*{lastname}" /></td>
+                </tr>
+                <tr>
+                    <td>email:</td>
+                    <td><input type="text" th:field="*{email}" /></td>
+                </tr>
+                <tr>
+                    <td>adresse:</td>
+                    <td><input type="text" th:field="*{adress}" /></td>
+                </tr>
+                <tr>
+                    <td>contact:</td>
+                    <td><input type="text" th:field="*{contact}" /></td>
+                </tr>                            
+                <tr>
+                    <td colspan="2"><button type="submit">Save</button> </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
