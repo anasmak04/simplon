@@ -41,8 +41,8 @@ public class appController {
 		}
 		
 		@RequestMapping("/edit/{id_employees}")
-		public ModelAndView showEditProductPage(@PathVariable(name = "id_employees") Long id_employees) {
-		    ModelAndView mav = new ModelAndView("edit_product");
+		public ModelAndView showEditEmploye(@PathVariable(name = "id_employees") Long id_employees) {
+		    ModelAndView mav = new ModelAndView("edit_Employe");
 		    Employe employe = dao.get(id_employees);
 		    mav.addObject("employe", employe);
 		    return mav;

@@ -5,6 +5,8 @@
 <meta charset="ISO-8859-1">
 <title>Home Page</title>
 <style>
+a{
+text-decoration:none;}
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
@@ -20,12 +22,24 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+.add{
+	text-decoration:none;
+	color:royalblue;
+	text-transform:capitalize;
+	font-size:25px;
+	
+}
+h1{
+text-align:center;
+color:royalblue;
+}
 </style>
 </head>
 <body>
-<div align="center">
-    <h1>EMPLOYE</h1>
-    <a href="/new">Create New Employe</a>    
+<div align="">
+    <h1>Gestion Employe</h1>
+         <a href="/new" class="add">Create New Employe</a>
+     
     <br/><br/>
     <table border="1" cellpadding="10">
     
@@ -48,6 +62,11 @@ tr:nth-child(even) {
               <td th:text="${employe.Adress}">adress</td>
               <td th:text="${employe.Contact}">contact</td>
              
+              <td>
+                    <a  th:href="@{'/edit/'}+${employe.id_employees}">Edit</a>
+                    <a  th:href="@{'/delete/'}+${employe.id_employees}">Delete</a>
+                    
+                </td>
             </tr>
         </tbody>
     </table>

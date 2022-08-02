@@ -26,7 +26,7 @@ public class DaoImpl implements DaoInter {
 		return emprepo.findAll();
 	}
 
-	@Override
+	@Override 
 	public Employe get(long id_employees) {
 		return emprepo.findById(id_employees).get();
 	}
