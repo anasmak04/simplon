@@ -53,6 +53,12 @@ public class appController {
 			dao.delete(id_employees);
 		    return "redirect:/";
 		}
-
+			
+		
+		@RequestMapping("/Login")
+		public String Login() { 
+			
+			return "Login";
+		}
 		
 }

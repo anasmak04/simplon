@@ -9,5 +9,6 @@ public class Pr11Application {
 	public static void main(String[] args) {
 		SpringApplication.run(Pr11Application.class, args);
 	}
+	
 }
 
