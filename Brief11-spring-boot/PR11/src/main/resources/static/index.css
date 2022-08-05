@@ -1,0 +1,50 @@
+@charset "ISO-8859-1";
+a{
+text-decoration:none;}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+*{
+	padding:0;
+	margin:0;
+	box-sizing:border-box;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.add{
+	text-decoration:none;
+	color:royalblue;
+	text-transform:capitalize;
+	font-size:25px;
+	
+}
+h1{
+text-align:center;
+color:black;
+text-transform:capitalize;
+margin-bottom:12px;
+}
+.add{
+color:black;
+text-transform:capitalize;
+}
+.svg{
+	width:20px;
+	padding:2px;
+}
+#logout{
+float:right;
+width:100px;
+height:30px;
+cursor:pointer;
+}
