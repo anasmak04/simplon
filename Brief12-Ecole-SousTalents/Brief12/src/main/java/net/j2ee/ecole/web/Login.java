@@ -33,25 +33,40 @@ public class Login extends HttpServlet {
 	DaoEtu  daoe = new DaoEtu();
 	Dao dap = new Dao();
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+//		doGet(request, response);
 		
-		String id = request.getParameter("id");
-        String name = request.getParameter("description");
-        String idEtudi = request.getParameter("idEtudiant");
-        String idProf = request.getParameter("idProf");
-//        Professeurs professeurs = dao.get(1);
+//		String id = request.getParameter("id");
+//        String name = request.getParameter("description");
+//        String idEtudi = request.getParameter("idEtudiant");
+//        String idProf = request.getParameter("idProf");
+////        Professeurs professeurs = dao.get(1);
 //		Etudiant etudiant = daoe.get(1); 
 //       Cours cours = new Cours(name, etudiant, professeurs);
 
         
-        try {
-            dao.save(cours);
-            response.sendRedirect("Success.jsp");
+//        try {
+//            dao.save(cours);
+//            response.sendRedirect("Success.jsp");
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            System.out.println("catch");
+//        }
+		String id = request.getParameter("id_Admin");
+		String username = request.getParameter("Email");
+        String password = request.getParameter("Password");
 
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("catch");
+        if(id.equals(1) && username.equals("anas@meta.com") && password.equals("123")) {
+
+             response.sendRedirect("Home.html");
+
+        } else {
+
+            response.sendRedirect("login.html");
+
         }
+		
+		
 	}
 
 }
