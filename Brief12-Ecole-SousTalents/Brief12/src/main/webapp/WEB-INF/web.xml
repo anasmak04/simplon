@@ -19,5 +19,14 @@
     <servlet-name>Login</servlet-name>
     <url-pattern>/Login</url-pattern>
   </servlet-mapping>
-
+  <servlet>
+    <description></description>
+    <display-name>CoursServlet</display-name>
+    <servlet-name>CoursServlet</servlet-name>
+    <servlet-class>net.j2ee.ecole.web.CoursServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CoursServlet</servlet-name>
+    <url-pattern>/CoursServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

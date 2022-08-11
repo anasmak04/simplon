@@ -7,6 +7,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
 
+import net.j2ee.ecole.models.Admin;
 import net.j2ee.ecole.models.Cours;
 import net.j2ee.ecole.models.Etudiant;
 import net.j2ee.ecole.models.Professeurs;
@@ -35,6 +36,7 @@ public class HibernateUtil {
 		    configuration.addAnnotatedClass(Professeurs.class);
 		    configuration.addAnnotatedClass(Etudiant.class);
 		    configuration.addAnnotatedClass(Cours.class);
+		    configuration.addAnnotatedClass(Admin.class);
 
 		    ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
 		      .applySettings(configuration.getProperties()).build();
