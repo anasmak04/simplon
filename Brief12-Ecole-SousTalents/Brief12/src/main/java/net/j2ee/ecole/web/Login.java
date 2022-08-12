@@ -27,6 +27,20 @@ public class Login extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String id = request.getParameter("id_Admin");
+		String username = request.getParameter("Email");
+        String password = request.getParameter("Password");
+
+        if(id.equals("1") && username.equals("anas@meta.com") && password.equals("123")) {
+
+             response.sendRedirect("Home.html");
+
+        } else {
+
+            response.sendRedirect("Login.html");
+
+        }
+	
 	}
 	
 	DaoCours dao = new DaoCours();
@@ -52,19 +66,7 @@ public class Login extends HttpServlet {
 //            e.printStackTrace();
 //            System.out.println("catch");
 //        }
-		String id = request.getParameter("id_Admin");
-		String username = request.getParameter("Email");
-        String password = request.getParameter("Password");
-
-        if(id.equals(1) && username.equals("anas@meta.com") && password.equals("123")) {
-
-             response.sendRedirect("Home.html");
-
-        } else {
-
-            response.sendRedirect("login.html");
-
-        }
+		
 		
 		
 	}
