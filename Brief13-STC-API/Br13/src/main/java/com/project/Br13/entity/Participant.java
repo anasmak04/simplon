@@ -23,16 +23,15 @@ public class Participant {
 	private String email;
 	private String domaine;
 	private String structure;
-	private Integer id_responsable;
 	
 	@ManyToMany
     @JoinTable(name = "Partcipant_Activite", joinColumns = @JoinColumn(name = "id_participant "),
     inverseJoinColumns = @JoinColumn(name = "id_activite"))
     private List<Activite> activite;
 	
-//    @OneToOne(mappedBy = "Admin")
-//    private Admin admin;
-
+	@ManyToOne
+    @JoinColumn(name = "idResponsable")
+    private Responsable responsable;
 	
 	
 	

@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,7 +29,6 @@ public class Activite {
 	private Integer id_activite;
 	private String titre;
 	private String descriptif;
-	private Integer id_type_activite;
 	private Date date_debut;
 	private Date date_Fin;
 	private boolean etat;
@@ -45,7 +45,9 @@ public class Activite {
 	    @JoinTable(name = "Partcipant_Activite", joinColumns = @JoinColumn(name = " id_activite"),
 	    inverseJoinColumns = @JoinColumn(name = "id_participant"))
 	    private List<Participant> participant;
-
-	
+		
+		@ManyToOne
+	    @JoinColumn(name = "idTypeActivite")
+	    private TypeActivite typeactivite;
 	
 }
