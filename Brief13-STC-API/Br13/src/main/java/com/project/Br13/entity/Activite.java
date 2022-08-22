@@ -25,7 +25,6 @@ import lombok.ToString;
 public class Activite {
 		
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-
 	private Integer id_activite;
 	private String titre;
 	private String descriptif;
