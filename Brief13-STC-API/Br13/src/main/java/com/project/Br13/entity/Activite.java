@@ -12,6 +12,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+import org.springframework.context.annotation.Bean;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -19,13 +21,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Data @Entity
+@Data @Entity 
 @AllArgsConstructor @NoArgsConstructor
 @Getter @Setter @ToString
 public class Activite {
 		
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id_activite;
+	private Integer id_activite; 
 	private String titre;
 	private String descriptif;
 	private Date date_debut;

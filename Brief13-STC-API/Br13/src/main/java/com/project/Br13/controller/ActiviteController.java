@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("activite")
 public class ActiviteController {
+
 	@Autowired
 	ActiviteServices activiteservices;
 	
