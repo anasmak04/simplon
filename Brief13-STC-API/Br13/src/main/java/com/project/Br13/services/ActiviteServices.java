@@ -3,22 +3,29 @@ package com.project.Br13.services;
 import java.util.List;
 
 import com.project.Br13.entity.Activite;
+import com.project.Br13.repository.ActiviteRepo;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
 
 public class ActiviteServices implements Services<Activite> {
-
+	@Autowired
+	ActiviteRepo activiterepo;
+	
 	@Override
 	public List<Activite> getall() {
-		return null;
+		return activiterepo.findAll();
 	}
 
 	@Override
-	public Activite getById(Integer type) {
-		return null;
+	public Activite getById(Integer id_activite) {
+        return activiterepo.findById(id_activite).orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Resource Not found") );
 	}
 
 	@Override
-	public Activite save(Activite type) {
-		return null;
+	public Activite save(Activite activite) {
+		return activiterepo.save(activite);
 	}
 
 	@Override
@@ -27,8 +34,8 @@ public class ActiviteServices implements Services<Activite> {
 	}
 
 	@Override
-	public void delete(Integer type) {
-		
+	public void delete(Integer id_activite) {
+			activiterepo.deleteById(id_activite);
 	}
 
 
