@@ -41,7 +41,7 @@ public class AdminController {
 	
 	@DeleteMapping("/{id}")
 	public void DeleteAdmin(@PathVariable Long id) {
-		adminservices.delete(id); 
+		adminservices.delete(id);
 	}
 	
 }

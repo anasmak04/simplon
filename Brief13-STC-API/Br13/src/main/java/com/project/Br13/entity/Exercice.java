@@ -112,9 +112,5 @@ public class Exercice {
 		return "Exercice [id_exercice=" + id_exercice + ", annee=" + annee + ", date_debut=" + date_debut
 				+ ", date_fin=" + date_fin + ", statut=" + statut + ", activite=" + activite + "]";
 	}
-
-	
-
-	
-	
+		
 }

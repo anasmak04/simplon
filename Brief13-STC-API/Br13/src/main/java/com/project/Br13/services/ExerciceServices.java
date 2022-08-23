@@ -1,6 +1,7 @@
 package com.project.Br13.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.project.Br13.entity.Exercice;
 import com.project.Br13.repository.ExerciceRepo;
@@ -33,14 +34,12 @@ public class ExerciceServices implements Services<Exercice>  {
 	}
 
 	@Override
-	public void update(Long id_exercice ,Exercice exercice) {
-		Exercice exerciceFor = exercicerepo.findById(id_exercice).get();
-		System.out.println(exerciceFor.toString());
-		exerciceFor.setAnnee(exercice.getAnnee());
-		exerciceFor.setDate_debut(exercice.getDate_debut());
-		exerciceFor.setDate_fin(exercice.getDate_fin());
-		exerciceFor.setStatut(exercice.isStatut());
-			exercicerepo.save(exercice); 
+	public Exercice update(Exercice exercice) {
+		Optional<Exercice> exr  = exercicerepo.findById(exercice.getId_exercice());
+        if(exr == null) {
+            throw new RestClientException("Employee with id "+exercice.getId_exercice()+" not found");
+        }
+        return exercicerepo.save(exercice);
 	}
 
 	@Override

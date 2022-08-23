@@ -33,7 +33,8 @@ public class ActiviteServices implements Services<Activite> {
 	}
 
 	@Override
-	public void update(Long id_activite, Activite activite) {
+	public Activite update( Activite activite) {
+		return activite;
 		
 	}
 

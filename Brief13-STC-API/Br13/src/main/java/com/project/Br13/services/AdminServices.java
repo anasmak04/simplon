@@ -33,12 +33,14 @@ public class AdminServices implements Services<Admin> {
 		}
 
 		@Override
-		public void update(Long id, Admin admin) {
+		public Admin update(Admin admin) {
+			return admin;
 		}
 
 		@Override
 		public void delete(Long id) {
-			 adminrepo.deleteById(id);			
+			 adminrepo.deleteById(id);
+					
 		}
 	
 		

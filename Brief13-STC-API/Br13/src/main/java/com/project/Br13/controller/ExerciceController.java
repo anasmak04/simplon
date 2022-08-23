@@ -58,12 +58,13 @@ public class ExerciceController {
 
 	}
 	
-	@PutMapping()
-	public void UpdateExercice(@PathVariable("id_exercice") Long id_exercice,@RequestBody Exercice exercice) {
-			 exerciceservices.update(id_exercice, exercice);
-		
-	       
-
-	}
+	
+	     
+	    @PutMapping()
+	    public Exercice updateExercice(@PathVariable Long id,@RequestBody Exercice exercice) {
+	        return exerciceservices.update(exercice); 
+	    }
+	
+	
 	
 	}
