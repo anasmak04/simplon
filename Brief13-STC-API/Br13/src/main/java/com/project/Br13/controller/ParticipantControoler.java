@@ -29,8 +29,8 @@ public class ParticipantControoler {
 		
 
 		@GetMapping("/{id}")
-		public Participant getExercice(@PathVariable Long id_participant) {
-		Participant participant = partservices.getById(id_participant);
+		public Participant getExercice(@PathVariable Long id) {
+		Participant participant = partservices.getById(id);
 		return participant;
 		}
 		
@@ -48,8 +48,8 @@ public class ParticipantControoler {
 
 
 		@DeleteMapping("/{id}")
-		public void DeleteAdmin(@PathVariable Long id_participant) {
-			partservices.delete(id_participant);
+		public void DeleteAdmin(@PathVariable Long id) {
+			partservices.delete(id);
 
 		}
 		
