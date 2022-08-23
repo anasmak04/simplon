@@ -1,5 +1,7 @@
 package com.project.Br13;
 
+import com.project.Br13.entity.Admin;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

@@ -21,7 +21,7 @@ public class AdminServices implements Services<Admin> {
 		}
 
 		@Override
-		public Admin getById(Integer id) {
+		public Admin getById(Long id) {
 	        return adminrepo.findById(id).orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Resource Not found") );
 
 		}
@@ -33,12 +33,11 @@ public class AdminServices implements Services<Admin> {
 		}
 
 		@Override
-		public void update(Admin type) {
-				
+		public void update(Long id, Admin admin) {
 		}
 
 		@Override
-		public void delete(Integer id) {
+		public void delete(Long id) {
 			 adminrepo.deleteById(id);			
 		}
 	

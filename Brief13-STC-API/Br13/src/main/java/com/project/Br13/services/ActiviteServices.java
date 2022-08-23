@@ -23,7 +23,7 @@ public class ActiviteServices implements Services<Activite> {
 	}
 
 	@Override
-	public Activite getById(Integer id_activite) {
+	public Activite getById(Long id_activite) {
         return activiterepo.findById(id_activite).orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Resource Not found") );
 	}
 
@@ -33,12 +33,12 @@ public class ActiviteServices implements Services<Activite> {
 	}
 
 	@Override
-	public void update(Activite type) {
+	public void update(Long id_activite, Activite activite) {
 		
 	}
 
 	@Override
-	public void delete(Integer id_activite) {
+	public void delete(Long id_activite) {
 			activiterepo.deleteById(id_activite);
 	}
 
