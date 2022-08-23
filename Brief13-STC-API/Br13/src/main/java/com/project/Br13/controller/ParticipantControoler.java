@@ -27,7 +27,6 @@ public class ParticipantControoler {
 			this.partservices = partservices;
 		}
 		
-
 		@GetMapping("/{id}")
 		public Participant getExercice(@PathVariable Long id) {
 		Participant participant = partservices.getById(id);

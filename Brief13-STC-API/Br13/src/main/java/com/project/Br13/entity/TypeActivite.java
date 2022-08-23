@@ -17,6 +17,7 @@ public class TypeActivite {
 	@Column
 	private String type;
 	
+	
 	@OneToMany(mappedBy = "typeactivite", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Activite> activites;
 
