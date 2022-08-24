@@ -31,8 +31,7 @@ public class PartcipantServices implements Services<Participant> {
 	}
 
 	@Override
-	public Participant update(Participant participant) {
-		return null;
+	public void update(Long id,Participant participant) {
 	}
 
 	@Override

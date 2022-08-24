@@ -45,7 +45,6 @@ public class Exercice {
 
 	public Exercice() {
 		super();
-		//TODO Auto-generated constructor stub
 	}
 
 	public Exercice(Long id_exercice, Long annee, Timestamp date_debut, Timestamp date_fin, boolean statut,

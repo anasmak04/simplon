@@ -33,8 +33,16 @@ public class AdminServices implements Services<Admin> {
 		}
 
 		@Override
-		public Admin update(Admin admin) {
-			return admin;
+		public void update(Long id,Admin admin) {			
+			Admin adminn = adminrepo.findById(id).get();
+	        System.out.println(adminn.toString());
+	        adminn.setNom(admin.getNom());
+	        adminn.setPrenom(admin.getPrenom());
+	        adminn.setEmail(admin.getEmail());
+	        adminn.setTelephone(admin.getTelephone());
+	        adminn.setPassword(admin.getPassword());
+	         adminrepo.save(adminn);
+			
 		}
 
 		@Override

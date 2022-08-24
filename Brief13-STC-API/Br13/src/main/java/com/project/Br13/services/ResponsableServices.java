@@ -32,8 +32,7 @@ public class ResponsableServices implements Services<Responsable> {
 	}
 
 	@Override
-	public Responsable update(Responsable responsable) {
-		return responsable;
+	public void update(Long id,Responsable responsable) {
 
 	}
 

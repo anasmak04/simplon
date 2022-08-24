@@ -34,12 +34,8 @@ public class ExerciceServices implements Services<Exercice>  {
 	}
 
 	@Override
-	public Exercice update(Exercice exercice) {
-		Optional<Exercice> exr  = exercicerepo.findById(exercice.getId_exercice());
-        if(exr == null) {
-            throw new RestClientException("Employee with id "+exercice.getId_exercice()+" not found");
-        }
-        return exercicerepo.save(exercice);
+	public void update(Long id,Exercice exercice) {
+		
 	}
 
 	@Override
