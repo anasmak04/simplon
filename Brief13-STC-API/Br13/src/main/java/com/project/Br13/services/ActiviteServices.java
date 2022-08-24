@@ -3,6 +3,7 @@ package com.project.Br13.services;
 import java.util.List;
 
 import com.project.Br13.entity.Activite;
+import com.project.Br13.entity.Admin;
 import com.project.Br13.repository.ActiviteRepo;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +35,16 @@ public class ActiviteServices implements Services<Activite> {
 
 	@Override
 	public void update(Long id, Activite activite) {
-		
+		Activite activitee = activiterepo.findById(id).get();
+        System.out.println(activitee.toString());
+    
+        	activitee.setTitre(activite.getTitre());
+        	activitee.setDescriptif(activite.getDescriptif());
+        	activitee.setDate_debut(activite.getDate_debut());
+        	activitee.setDate_fin(activite.getDate_fin());
+        	activitee.setEtat(activite.isEtat());
+         	activitee.setTypeactivite(activite.getTypeactivite());
+         	activiterepo.save(activite);
 	}
 
 	@Override

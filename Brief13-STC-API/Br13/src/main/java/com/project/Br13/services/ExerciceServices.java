@@ -3,6 +3,7 @@ package com.project.Br13.services;
 import java.util.List;
 import java.util.Optional;
 
+import com.project.Br13.entity.Admin;
 import com.project.Br13.entity.Exercice;
 import com.project.Br13.repository.ExerciceRepo;
 
@@ -35,7 +36,12 @@ public class ExerciceServices implements Services<Exercice>  {
 
 	@Override
 	public void update(Long id,Exercice exercice) {
-		
+		Exercice exercicee = exercicerepo.findById(id).get();
+        System.out.println(exercicee.toString());
+        exercicee.setAnnee(exercice.getAnnee());
+        exercicee.setDate_debut(exercice.getDate_debut());
+        exercicee.setStatut(exercice.isStatut());
+        exercicerepo.save(exercicee);
 	}
 
 	@Override

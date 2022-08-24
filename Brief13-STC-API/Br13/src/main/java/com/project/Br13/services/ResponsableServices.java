@@ -12,17 +12,19 @@ import org.springframework.web.server.ResponseStatusException;
 
 @Service
 public class ResponsableServices implements Services<Responsable> {
-		
+
 	@Autowired
 	ResponsableRepo respRepo;
+
 	@Override
 	public List<Responsable> getall() {
-			return respRepo.findAll();
+		return respRepo.findAll();
 	}
 
 	@Override
 	public Responsable getById(Long id_responsable) {
-        return respRepo.findById(id_responsable).orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Resource Not found") );
+		return respRepo.findById(id_responsable)
+				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Resource Not found"));
 
 	}
 
@@ -32,13 +34,21 @@ public class ResponsableServices implements Services<Responsable> {
 	}
 
 	@Override
-	public void update(Long id,Responsable responsable) {
-
+	public void update(Long id, Responsable responsable) {
+		Responsable responsablee = respRepo.findById(id).get();
+		System.out.println(responsablee.toString());
+		responsablee.setNom(responsable.getNom());
+		responsablee.setPrenom(responsable.getPrenom());
+		responsablee.setTelephone(responsable.getTelephone());
+		responsablee.setDomaine(responsable.getDomaine());
+		responsablee.setEtat(responsable.isEtat());
+		responsablee.setTyperesponsable(responsable.getTyperesponsable());
+		respRepo.save(responsablee);
 	}
 
 	@Override
 	public void delete(Long id_responsable) {
-		 respRepo.deleteById(id_responsable);
+		respRepo.deleteById(id_responsable);
 	}
 
 }

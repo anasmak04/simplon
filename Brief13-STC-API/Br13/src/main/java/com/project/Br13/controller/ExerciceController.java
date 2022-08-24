@@ -2,6 +2,7 @@ package com.project.Br13.controller;
 
 import java.util.List;
 
+import com.project.Br13.entity.Activite;
 import com.project.Br13.entity.Admin;
 import com.project.Br13.entity.Exercice;
 import com.project.Br13.services.AdminServices;
@@ -22,11 +23,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("exercice")
-public class ExerciceController { 
-	@Autowired 
-	ExerciceServices exerciceservices;  
-
-	
+public class ExerciceController {
+	@Autowired
+	ExerciceServices exerciceservices;
 
 	public ExerciceController(ExerciceServices exerciceservices) {
 		super();
@@ -35,36 +34,32 @@ public class ExerciceController {
 
 	@GetMapping("/{id}")
 	public Exercice getExercice(@PathVariable Long id) {
-	Exercice exercice = exerciceservices.getById(id);
-	return exercice;
+		Exercice exercice = exerciceservices.getById(id);
+		return exercice;
 	}
-	
+
 	@GetMapping()
-	public List<Exercice> getallAdmin(){
-	return exerciceservices.getall();
-	}			
+	public List<Exercice> getallAdmin() {
+		return exerciceservices.getall();
+	}
 
 	@PostMapping()
 	public Exercice InsertExercice(@RequestBody Exercice exercice) {
-		
-		System.out.println(exercice.getAnnee());
-	return exerciceservices.save(exercice);
-	}
 
+		System.out.println(exercice.getAnnee());
+		return exerciceservices.save(exercice);
+	}
 
 	@DeleteMapping("/{id}")
 	public void DeleteAdmin(@PathVariable Long id) {
 		exerciceservices.delete(id);
 
 	}
-	
-	
-	     
-//	    @PutMapping()
-//	    public Exercice updateExercice(@PathVariable Long id,@RequestBody Exercice exercice) {
-//	        return exerciceservices.update(exercice); 
-//	    }
-//	
-	
-	
-	}
+
+	@PutMapping({"/{id}"})
+	    public ResponseEntity<Exercice> updateAdmin(@PathVariable("id") Long id, @RequestBody Exercice exercice) {
+		 exerciceservices.update(id, exercice);
+	        return new ResponseEntity<>(exerciceservices.getById(id), HttpStatus.OK);
+	    }
+
+}

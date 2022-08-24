@@ -7,6 +7,8 @@ import com.project.Br13.entity.Participant;
 import com.project.Br13.services.PartcipantServices;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -53,10 +55,10 @@ public class ParticipantControoler {
 		}
 		
 		
-		     
-//		    @PutMapping()
-//		    public Exercice updateExercice(@PathVariable Long id,@RequestBody Exercice exercice) {
-//		        return exerciceservices.update(exercice); 
-//		    }
+		@PutMapping({"/{id}"})
+	    public ResponseEntity<Participant> updateAdmin(@PathVariable("id") Long id, @RequestBody Participant participant) {
+			partservices.update(id, participant);
+	        return new ResponseEntity<>(partservices.getById(id), HttpStatus.OK);
+	    }
 		
 }
