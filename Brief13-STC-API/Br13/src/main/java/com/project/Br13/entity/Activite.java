@@ -1,6 +1,5 @@
 package com.project.Br13.entity;
 
-import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -21,17 +20,10 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.context.annotation.Bean;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 
 @Data
 @Entity
-@Table(name = "Activite")
-
 public class Activite {
 
 	@Id
@@ -46,6 +38,7 @@ public class Activite {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date date_fin;
 	private boolean etat;
+	private TypeActivite typeactivite;
 
 	@ManyToMany
 	@JoinTable(name = "Exercice_Activite", joinColumns = @JoinColumn(name = " id_activite"), inverseJoinColumns = @JoinColumn(name = "id_exercice"))
@@ -55,16 +48,13 @@ public class Activite {
 	@JoinTable(name = "Partcipant_Activite", joinColumns = @JoinColumn(name = " id_activite"), inverseJoinColumns = @JoinColumn(name = "id_participant"))
 	private List<Participant> participant;
 
-	@ManyToOne
-	@JoinColumn(name = "idTypeActivite")
-	private TypeActivite typeactivite;
-
+	
 	public Activite() {
 		super();
 	}
 
 	public Activite(Long id_activite, String titre, String descriptif, Date date_debut, Date date_fin, boolean etat,
-			List<Exercice> exercices, List<Participant> participant, TypeActivite typeactivite) {
+			TypeActivite typeactivite, List<Exercice> exercices, List<Participant> participant) {
 		super();
 		this.id_activite = id_activite;
 		this.titre = titre;
@@ -72,9 +62,9 @@ public class Activite {
 		this.date_debut = date_debut;
 		this.date_fin = date_fin;
 		this.etat = etat;
+		this.typeactivite = typeactivite;
 		this.exercices = exercices;
 		this.participant = participant;
-		this.typeactivite = typeactivite;
 	}
 
 	public Long getId_activite() {
@@ -125,6 +115,14 @@ public class Activite {
 		this.etat = etat;
 	}
 
+	public TypeActivite getTypeactivite() {
+		return typeactivite;
+	}
+
+	public void setTypeactivite(TypeActivite typeactivite) {
+		this.typeactivite = typeactivite;
+	}
+
 	public List<Exercice> getExercices() {
 		return exercices;
 	}
@@ -141,19 +139,10 @@ public class Activite {
 		this.participant = participant;
 	}
 
-	public TypeActivite getTypeactivite() {
-		return typeactivite;
-	}
-
-	public void setTypeactivite(TypeActivite typeactivite) {
-		this.typeactivite = typeactivite;
-	}
-
 	@Override
 	public String toString() {
 		return "Activite [id_activite=" + id_activite + ", titre=" + titre + ", descriptif=" + descriptif
-				+ ", date_debut=" + date_debut + ", date_fin=" + date_fin + ", etat=" + etat + ", exercices="
-				+ exercices + ", participant=" + participant + ", typeactivite=" + typeactivite + "]";
+				+ ", date_debut=" + date_debut + ", date_fin=" + date_fin + ", etat=" + etat + ", typeactivite="
+				+ typeactivite + ", exercices=" + exercices + ", participant=" + participant + "]";
 	}
-
 }

@@ -21,21 +21,18 @@ public class Responsable {
 	private String telephone;
 	private String domaine;
 	private boolean etat;
+	private TypeRespnsable typeresponsable;
 	
 	@OneToMany(mappedBy = "responsable", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Participant> participants;
-	
-	@ManyToOne
-    @JoinColumn(name = "idTypeResponsable")
-    private TypeRespnsable typeresponsable;
 
 	public Responsable() {
 		super();
 		//TODO Auto-generated constructor stub
 	}
 
-	public Responsable(Long id_responsable, String nom, String prenom, String telephone, String domaine,
-			boolean etat, List<Participant> participants, TypeRespnsable typeresponsable) {
+	public Responsable(Long id_responsable, String nom, String prenom, String telephone, String domaine, boolean etat,
+			TypeRespnsable typeresponsable, List<Participant> participants) {
 		super();
 		this.id_responsable = id_responsable;
 		this.nom = nom;
@@ -43,8 +40,8 @@ public class Responsable {
 		this.telephone = telephone;
 		this.domaine = domaine;
 		this.etat = etat;
-		this.participants = participants;
 		this.typeresponsable = typeresponsable;
+		this.participants = participants;
 	}
 
 	public Long getId_responsable() {
@@ -95,14 +92,6 @@ public class Responsable {
 		this.etat = etat;
 	}
 
-	public List<Participant> getParticipants() {
-		return participants;
-	}
-
-	public void setParticipants(List<Participant> participants) {
-		this.participants = participants;
-	}
-
 	public TypeRespnsable getTyperesponsable() {
 		return typeresponsable;
 	}
@@ -111,12 +100,29 @@ public class Responsable {
 		this.typeresponsable = typeresponsable;
 	}
 
+	public List<Participant> getParticipants() {
+		return participants;
+	}
+
+	public void setParticipants(List<Participant> participants) {
+		this.participants = participants;
+	}
+	
+	
+
 	@Override
 	public String toString() {
 		return "Responsable [id_responsable=" + id_responsable + ", nom=" + nom + ", prenom=" + prenom + ", telephone="
-				+ telephone + ", domaine=" + domaine + ", etat=" + etat + ", participants=" + participants
-				+ ", typeresponsable=" + typeresponsable + "]";
+				+ telephone + ", domaine=" + domaine + ", etat=" + etat + ", typeresponsable=" + typeresponsable
+				+ ", participants=" + participants + "]";
 	}
+	
+	
+	
+//	@ManyToOne
+//    @JoinColumn(name = "idTypeResponsable")
+//    private TypeRespnsable typeresponsable;
+
 	
 	
 }
