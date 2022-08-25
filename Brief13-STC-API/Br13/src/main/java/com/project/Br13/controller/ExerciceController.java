@@ -56,10 +56,10 @@ public class ExerciceController {
 
 	}
 
-	@PutMapping({"/{id}"})
-	    public ResponseEntity<Exercice> updateAdmin(@PathVariable("id") Long id, @RequestBody Exercice exercice) {
-		 exerciceservices.update(id, exercice);
-	        return new ResponseEntity<>(exerciceservices.getById(id), HttpStatus.OK);
-	    }
+	@PutMapping({ "/{id}" })
+	public ResponseEntity<Exercice> updateAdmin(@PathVariable("id") Long id, @RequestBody Exercice exercice) {
+		exerciceservices.update(id, exercice);
+		return new ResponseEntity<>(exerciceservices.getById(id), HttpStatus.OK);
+	}
 
 }

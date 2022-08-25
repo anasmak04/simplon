@@ -21,35 +21,34 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("admin")
 public class AdminController {
-		@Autowired
-		AdminServices adminservices;
-	
-	
+	@Autowired
+	AdminServices adminservices;
+
 	@GetMapping("/{id}")
 	public Admin getAdmin(@PathVariable Long id) {
 		Admin admin = adminservices.getById(id);
 		return admin;
 	}
+
 	@GetMapping()
-	public List<Admin> getallAdmin(){
+	public List<Admin> getallAdmin() {
 		return adminservices.getall();
 	}
-	
+
 	@PostMapping()
 	public Admin InsertAdmin(@RequestBody Admin admin) {
 		return adminservices.save(admin);
 	}
-	
-	
+
 	@DeleteMapping("/{id}")
 	public void DeleteAdmin(@PathVariable Long id) {
 		adminservices.delete(id);
 	}
-	
-	 @PutMapping({"/{id}"})
-	    public ResponseEntity<Admin> updateAdmin(@PathVariable("id") Long id, @RequestBody Admin admin) {
-	        adminservices.update(id, admin);
-	        return new ResponseEntity<>(adminservices.getById(id), HttpStatus.OK);
-	    }
-	
+
+	@PutMapping({ "/{id}" })
+	public ResponseEntity<Admin> updateAdmin(@PathVariable("id") Long id, @RequestBody Admin admin) {
+		adminservices.update(id, admin);
+		return new ResponseEntity<>(adminservices.getById(id), HttpStatus.OK);
+	}
+
 }
