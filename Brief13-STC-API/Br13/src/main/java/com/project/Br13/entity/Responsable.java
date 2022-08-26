@@ -4,6 +4,9 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -16,6 +19,9 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
+
+property = "id_responsable")
 public class Responsable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,8 +35,7 @@ public class Responsable {
 
 	@OneToMany(mappedBy = "responsable", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Participant> participants;
-//	@ManyToOne
-//    @JoinColumn(name = "idTypeResponsable")
-//    private TypeRespnsable typeresponsable;
+	
+
 
 }

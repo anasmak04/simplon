@@ -1,8 +1,12 @@
 package com.project.Br13.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,6 +20,10 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
+
+property = "id_participant")
 @Table(name = "Participant")
 public class Participant {
 	@Id
@@ -28,9 +36,11 @@ public class Participant {
 	private String domaine;
 	private String structure;
 
-	@ManyToMany
-	@JoinTable(name = "Partcipant_Activite", joinColumns = @JoinColumn(name = "id_participant "), inverseJoinColumns = @JoinColumn(name = "id_activite"))
-	private List<Activite> activite;
+
+
+
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "participants")
+	private List<Activite> activites = new ArrayList<Activite>();
 
 	@ManyToOne
 	@JoinColumn(name = "idResponsable")
