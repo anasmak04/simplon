@@ -18,7 +18,7 @@ import lombok.ToString;
 @Data
 @Entity
 @NoArgsConstructor
-@AllArgsConstructor 
+@AllArgsConstructor
 @ToString
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
 
@@ -36,7 +36,7 @@ public class Responsable {
 
 //	@OneToMany(mappedBy = "responsable", cascade = CascadeType.ALL, orphanRemoval = true)
 //	private List<Participant> participants;
-	
+
 	@OneToMany
     //@Transient
     @JoinColumn( name = "id_participant")

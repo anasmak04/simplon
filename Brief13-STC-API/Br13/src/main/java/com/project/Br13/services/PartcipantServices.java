@@ -23,8 +23,8 @@ public class PartcipantServices implements Services<Participant> {
 	}
 
 	@Override
-	public Participant getById(Long id_participant) {
-		return partiRepository.findById(id_participant)
+	public Participant getById(Long id) {
+		return partiRepository.findById(id)
 				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Resource Not found"));
 	}
 
@@ -47,8 +47,8 @@ public class PartcipantServices implements Services<Participant> {
 	}
 
 	@Override
-	public void delete(Long id_participant) {
-		partiRepository.deleteById(id_participant);
+	public void delete(Long id) {
+		partiRepository.deleteById(id);
 	}
 
 }

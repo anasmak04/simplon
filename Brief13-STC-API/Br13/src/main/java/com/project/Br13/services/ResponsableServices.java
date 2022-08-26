@@ -22,8 +22,8 @@ public class ResponsableServices implements Services<Responsable> {
 	}
 
 	@Override
-	public Responsable getById(Long id_responsable) {
-		return respRepo.findById(id_responsable)
+	public Responsable getById(Long id) {
+		return respRepo.findById(id)
 				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Resource Not found"));
 
 	}
@@ -47,8 +47,8 @@ public class ResponsableServices implements Services<Responsable> {
 	}
 
 	@Override
-	public void delete(Long id_responsable) {
-		respRepo.deleteById(id_responsable);
+	public void delete(Long id) {
+		respRepo.deleteById(id);
 	}
 
 }

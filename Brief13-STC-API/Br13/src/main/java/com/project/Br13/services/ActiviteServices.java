@@ -24,8 +24,8 @@ public class ActiviteServices implements Services<Activite> {
 	}
 
 	@Override
-	public Activite getById(Long id_activite) {
-        return activiterepo.findById(id_activite).orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Resource Not found") );
+	public Activite getById(Long id) {
+        return activiterepo.findById(id).orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Resource Not found") );
 	}
 
 	@Override
@@ -48,8 +48,8 @@ public class ActiviteServices implements Services<Activite> {
 	}
 
 	@Override
-	public void delete(Long id_activite) {
-			activiterepo.deleteById(id_activite);
+	public void delete(Long id) {
+			activiterepo.deleteById(id);
 	}
 
 

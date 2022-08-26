@@ -25,8 +25,8 @@ public class ExerciceServices implements Services<Exercice>  {
 	} 
 
 	@Override
-	public Exercice getById(Long id_exercice) {
-        return exercicerepo.findById(id_exercice).orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Resource Not found") );
+	public Exercice getById(Long id) {
+        return exercicerepo.findById(id).orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Resource Not found") );
 	}
 
 	@Override
@@ -45,7 +45,7 @@ public class ExerciceServices implements Services<Exercice>  {
 	}
 
 	@Override
-	public void delete(Long id_exercice) {
-		exercicerepo.deleteById(id_exercice);
+	public void delete(Long id) {
+		exercicerepo.deleteById(id);
 	}
 }

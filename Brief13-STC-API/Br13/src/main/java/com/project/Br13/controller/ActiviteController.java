@@ -27,8 +27,8 @@ public class ActiviteController {
 	ActiviteServices activiteservices;
 	
 	@GetMapping("/{id}")
-	public Activite getActivite(@PathVariable Long id_activite) {
-	Activite activite = activiteservices.getById(id_activite);
+	public Activite getActivite(@PathVariable Long id) {
+	Activite activite = activiteservices.getById(id);
 	return activite;
 	}
 	
@@ -44,8 +44,8 @@ public class ActiviteController {
 
 
 	@DeleteMapping("/{id}")
-	public void DeleteActivite(@PathVariable Long id_activite) {
-		activiteservices.delete(id_activite);
+	public void DeleteActivite(@PathVariable Long id) {
+		activiteservices.delete(id);
 	}
 	 
 	 @PutMapping({"/{id}"})
