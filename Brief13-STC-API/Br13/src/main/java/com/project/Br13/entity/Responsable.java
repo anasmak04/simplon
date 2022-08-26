@@ -1,5 +1,6 @@
 package com.project.Br13.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -17,7 +18,7 @@ import lombok.ToString;
 @Data
 @Entity
 @NoArgsConstructor
-@AllArgsConstructor
+@AllArgsConstructor 
 @ToString
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
 
@@ -33,8 +34,18 @@ public class Responsable {
 	private boolean etat;
 	private TypeRespnsable typeresponsable;
 
-	@OneToMany(mappedBy = "responsable", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<Participant> participants;
+//	@OneToMany(mappedBy = "responsable", cascade = CascadeType.ALL, orphanRemoval = true)
+//	private List<Participant> participants;
+	
+	@OneToMany
+    //@Transient
+    @JoinColumn( name = "id_participant")
+	List<Participant> participants = new ArrayList<>();
+	
+	@OneToMany
+    //@Transient
+    @JoinColumn( name = "id_activite")
+    List<Activite> activites = new ArrayList<>();
 	
 
 

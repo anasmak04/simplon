@@ -23,12 +23,11 @@ import lombok.ToString;
 
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
 
-property = "id_participant")
+		property = "id_participant")
 @Table(name = "Participant")
 public class Participant {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-
 	private Long id_participant;
 	private String fullname;
 	private String telephone;
@@ -36,13 +35,15 @@ public class Participant {
 	private String domaine;
 	private String structure;
 
-
-
-
-	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "participants")
-	private List<Activite> activites = new ArrayList<Activite>();
+//	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "participants")
+//	private List<Activite> activites = new ArrayList<Activite>();
 
 	@ManyToOne
-	@JoinColumn(name = "idResponsable")
+	@JoinColumn(name = "id_responsable")
 	private Responsable responsable;
+
+	@OneToMany
+	// @Transient
+	@JoinColumn(name = "id_activite")
+	List<Activite> activites = new ArrayList<>();
 }

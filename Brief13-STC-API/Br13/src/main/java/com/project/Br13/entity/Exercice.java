@@ -1,6 +1,7 @@
 package com.project.Br13.entity;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -11,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -44,8 +46,9 @@ public class Exercice {
 	Timestamp date_fin;
 	private boolean statut;
 
-	@ManyToMany
-	@JoinTable(name = "Exercice_Activite", joinColumns = @JoinColumn(name = "id_exercice "), inverseJoinColumns = @JoinColumn(name = "id_activite"))
-	private List<Activite> activite;
+	@OneToMany
+    //@Transient
+    @JoinColumn( name = "id_activite")
+    List<Activite> activites = new ArrayList<>();
 
 }

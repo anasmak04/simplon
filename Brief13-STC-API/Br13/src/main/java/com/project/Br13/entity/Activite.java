@@ -4,15 +4,19 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
 import javax.persistence.CascadeType;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+import javax.persistence.*;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -49,18 +53,26 @@ public class Activite {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date date_fin;
 	private boolean etat;
-	private TypeActivite typeactivite;
+		
+	@Embedded
+    //@Transient
+    @AttributeOverrides( {
+           @AttributeOverride(name="type", column = @Column(name="type_activite") )
+        }
+           )
+    private TypeActivite typeactivite;
 
-//	@ManyToMany
-//	@JoinTable(name = "Exercice_Activite", joinColumns = @JoinColumn(name = " id_activite"), inverseJoinColumns = @JoinColumn(name = "id_exercice"))
-//	private List<Exercice> exercices;
-//
-//	@ManyToMany
-//	@JoinTable(name = "Partcipant_Activite", joinColumns = @JoinColumn(name = " id_activite"), inverseJoinColumns = @JoinColumn(name = "id_participant"))
-//	private List<Participant> participant;
+
+     @ManyToOne
+        @JoinColumn( name = "id_responsable" )
+        private Responsable Responsable;
+
+     @ManyToOne
+        @JoinColumn( name = "id_exercice" )
+        private Exercice exercice;
+
+     @ManyToOne
+        @JoinColumn( name = "id_participant" )
+        private Participant Participant;
 	
-	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name = "activite_participant", joinColumns = {
-			@JoinColumn(name = "id_activite") }, inverseJoinColumns = { @JoinColumn(name = "id_participant") })
-	private List<Participant> participants = new ArrayList<Participant>();
 }
