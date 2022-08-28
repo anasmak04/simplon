@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 @Configuration
 @EnableWebSecurity
@@ -23,10 +24,14 @@ public class AppConfig extends WebSecurityConfigurerAdapter {
 	}
 
 	protected void configure(HttpSecurity http) throws Exception {
-		http.csrf().disable().authorizeRequests().antMatchers("/", "index", "/css/*", "/js/*").permitAll()
-				.antMatchers("/admin/**").hasRole(ApplicationUserRole.ADMIN.name()).anyRequest().authenticated().and()
-				.httpBasic();
-	
+//		http .csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+		http .csrf().disable()
+		.authorizeRequests()
+		.antMatchers("/", "index", "/css/*", "/js/*").permitAll()
+		.antMatchers("/admin/**")
+				.hasRole(ApplicationUserRole.ADMIN.name())
+				.anyRequest().authenticated().and().httpBasic();
+
 	}
 
 	@Bean
@@ -34,12 +39,12 @@ public class AppConfig extends WebSecurityConfigurerAdapter {
 
 		UserDetails Admin = User.builder().username("admin").password(passwordencoder.encode("admin123"))
 				.roles(ApplicationUserRole.ADMIN.name())
-				.authorities(ApplicationUserRole.ADMIN.getGrantedAuthorities())
+//				.authorities(ApplicationUserRole.ADMIN.getGrantedAuthorities())
 				.build();
 
 		UserDetails JUSTVISITOR = User.builder().username("visitor").password(passwordencoder.encode("visitor123"))
 				.roles(ApplicationUserRole.VISITOR.name())
-				.authorities(ApplicationUserRole.VISITOR.getGrantedAuthorities())
+//				.authorities(ApplicationUserRole.VISITOR.getGrantedAuthorities())
 				.build();
 		return new InMemoryUserDetailsManager(Admin, JUSTVISITOR);
 	}

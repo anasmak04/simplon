@@ -34,7 +34,7 @@ public class AdminController {
 	}
 
 	@GetMapping()
-	@PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_VISITOR')")
+//	@PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_VISITOR')")
 	public List<Admin> getallAdmin() {
 		return adminservices.getall();
 	}
