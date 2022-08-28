@@ -26,17 +26,21 @@ public class AppConfig extends WebSecurityConfigurerAdapter {
 		http.csrf().disable().authorizeRequests().antMatchers("/", "index", "/css/*", "/js/*").permitAll()
 				.antMatchers("/admin/**").hasRole(ApplicationUserRole.ADMIN.name()).anyRequest().authenticated().and()
 				.httpBasic();
+	
 	}
 
 	@Bean
 	protected UserDetailsService UserDetailsService() {
 
 		UserDetails Admin = User.builder().username("admin").password(passwordencoder.encode("admin123"))
-				.roles(ApplicationUserRole.ADMIN.name()).build();
+				.roles(ApplicationUserRole.ADMIN.name())
+				.authorities(ApplicationUserRole.ADMIN.getGrantedAuthorities())
+				.build();
 
 		UserDetails JUSTVISITOR = User.builder().username("visitor").password(passwordencoder.encode("visitor123"))
-				.roles(ApplicationUserRole.VISITOR.name()).build();
-
+				.roles(ApplicationUserRole.VISITOR.name())
+				.authorities(ApplicationUserRole.VISITOR.getGrantedAuthorities())
+				.build();
 		return new InMemoryUserDetailsManager(Admin, JUSTVISITOR);
 	}
 
