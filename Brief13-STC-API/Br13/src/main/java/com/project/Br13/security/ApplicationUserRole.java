@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 public enum ApplicationUserRole {
 	ADMIN(Sets.newHashSet(ApplicationUserPermission.COURSE_READ, ApplicationUserPermission.COURSE_WRITE,
 			ApplicationUserPermission.STUDENT_READ, ApplicationUserPermission.STUDENT_WRITE)),
-	VISITOR(Sets.newHashSet());
+	VISITOR(Sets.newHashSet(ApplicationUserPermission.COURSE_READ, ApplicationUserPermission.STUDENT_READ));
 
 	private final Set<ApplicationUserPermission> permissions;
 
@@ -22,11 +22,12 @@ public enum ApplicationUserRole {
 		return permissions;
 	}
 
-//	public Set<SimpleGrantedAuthority> getGrantedAuthorities() {
-//        Set<SimpleGrantedAuthority> permissions = getPermissions().stream()
-//                .map(permission -> new SimpleGrantedAuthority(permission.getPermission()))
-//                .collect(Collectors.toSet());
-//        permissions.add(new SimpleGrantedAuthority("ROLE_" + this.name()));
-//        return permissions;
-//    }
+	public Set<SimpleGrantedAuthority> getGrantedAuthorities() {
+        Set<SimpleGrantedAuthority> permissions = getPermissions().stream()
+                .map(permission -> new SimpleGrantedAuthority(permission.getPermission()))
+                .collect(Collectors.toSet());
+        permissions.add(new SimpleGrantedAuthority("ROLE_" + this.name()));
+        System.out.println();
+        return permissions;
+    }
 }

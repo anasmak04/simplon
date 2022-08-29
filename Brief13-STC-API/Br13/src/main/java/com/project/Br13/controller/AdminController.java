@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("admin")
-@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class AdminController {
 	@Autowired
 	AdminServices adminservices;
@@ -34,7 +33,7 @@ public class AdminController {
 	}
 
 	@GetMapping()
-//	@PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_VISITOR')")
+//    @PreAuthorize("hasRole('COURSE_READ')")
 	public List<Admin> getallAdmin() {
 		return adminservices.getall();
 	}
