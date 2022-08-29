@@ -3,7 +3,9 @@ package com.project.Br13.repository;
 import com.project.Br13.entity.Exercice;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface ExerciceRepo extends JpaRepository<Exercice,Long>{
-	
-} 
+@Repository
+public interface ExerciceRepo extends JpaRepository<Exercice, Long> {
+
+}

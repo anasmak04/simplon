@@ -25,12 +25,9 @@ public class AppConfig extends WebSecurityConfigurerAdapter {
 
 	protected void configure(HttpSecurity http) throws Exception {
 //		http .csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
-		http .csrf().disable()
-		.authorizeRequests()
-		.antMatchers("/", "index", "/css/*", "/js/*").permitAll()
-		.antMatchers("/admin/**")
-				.hasRole(ApplicationUserRole.ADMIN.name())
-				.anyRequest().authenticated().and().httpBasic();
+		http.csrf().disable().authorizeRequests().antMatchers("/", "index", "/css/*", "/js/*").permitAll()
+				.antMatchers("/admin/**").hasRole(ApplicationUserRole.ADMIN.name()).anyRequest().authenticated().and()
+				.httpBasic();
 
 	}
 

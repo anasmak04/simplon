@@ -40,16 +40,19 @@ public class AdminController {
 	}
 
 	@PostMapping()
+//	PreAuthorize()
 	public Admin InsertAdmin(@RequestBody Admin admin) {
 		return adminservices.save(admin);
 	}
 
 	@DeleteMapping("/{id}")
+//	PreAuthorize()
 	public void DeleteAdmin(@PathVariable Long id) {
 		adminservices.delete(id);
 	}
 
 	@PutMapping({ "/{id}" })
+//	PreAuthorize()
 	public ResponseEntity<Admin> updateAdmin(@PathVariable("id") Long id, @RequestBody Admin admin) {
 		adminservices.update(id, admin);
 		return new ResponseEntity<>(adminservices.getById(id), HttpStatus.OK);
