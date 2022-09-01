@@ -25,14 +25,14 @@ class Br13ApplicationTests {
 	@Test
 	void testCreateAdmin() {
 		Admin admin = new Admin();
-		admin.setId(1L);
+		admin.setId(8L);
 		admin.setNom("anas");
 		admin.setPrenom("mak");
 		admin.setEmail("anasbilal@google.com");
 		admin.setTelephone("2126737495");
 		admin.setPassword("anas5125N");
 		adminservices.save(admin);
-		assertNotNull(adminservices.getById(1L).getId());
+		assertNotNull(adminservices.getById(8L).getId());
 	}
 	
 	@Test
@@ -44,12 +44,20 @@ class Br13ApplicationTests {
 	
 	@Test
 	void testgetByIDAdmin() {
-		 adminservices.getById(1L).getId();
+		 adminservices.getById(8L).getId();
 	}
 	
 	@Test 
 	void TestDeleteAdmin() {
-		adminservices.delete(1L);
+		adminservices.delete(10L);
+	}
+	
+	@Test
+	void TestUpdateAdmin() {
+		Admin admin = new Admin();
+		admin = adminservices.getById(11L);
+		admin.setNom("omar");
+		adminservices.update(11L, admin);
 	}
 	
 
