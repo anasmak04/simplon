@@ -52,7 +52,7 @@ class Br13ApplicationTests {
 		adminservices.delete(10L);
 	}
 	
-	@Test
+	@Test  
 	void TestUpdateAdmin() {
 		Admin admin = new Admin();
 		admin = adminservices.getById(11L);
@@ -60,5 +60,4 @@ class Br13ApplicationTests {
 		adminservices.update(11L, admin);
 	}
 	
-
 }

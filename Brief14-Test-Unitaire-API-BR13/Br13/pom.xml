@@ -110,6 +110,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
-	</build>
+		<finalName>projet</finalName>	
+		</build>
 
 </project>
