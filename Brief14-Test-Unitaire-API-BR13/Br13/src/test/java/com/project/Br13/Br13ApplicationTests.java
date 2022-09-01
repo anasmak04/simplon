@@ -1,6 +1,9 @@
 package com.project.Br13;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertNotNull;
+
+import java.util.List;
 
 import com.project.Br13.controller.AdminController;
 import com.project.Br13.entity.Admin;
@@ -15,12 +18,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 class Br13ApplicationTests {
 	@Autowired
 	private AdminRepository adminrepo;
-	
 
-	
 	@Autowired
 	private AdminServices adminservices;
-	
+
 	@Test
 	void testCreateAdmin() {
 		Admin admin = new Admin();
@@ -33,5 +34,13 @@ class Br13ApplicationTests {
 		adminservices.save(admin);
 		assertNotNull(adminservices.getById(1L).getId());
 	}
+	
+	@Test
+	void testGetAllAdmin() {
+		List<Admin>list = adminservices.getall();
+		assertThat(list).size().isGreaterThan(0);
+	}
+	
+	
 
 }
