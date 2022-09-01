@@ -42,5 +42,15 @@ class Br13ApplicationTests {
 	}
 	
 	
+	@Test
+	void testgetByIDAdmin() {
+		 adminservices.getById(1L).getId();
+	}
+	
+	@Test 
+	void TestDeleteAdmin() {
+		adminservices.delete(1L);
+	}
+	
 
 }
