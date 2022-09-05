@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface SpringRepository extends JpaRepository<Student, Long> {
 	
-	public List<Student> findByfirstName(String Firstname);
+//	public List<Student> findByfirstName(String Firstname);
 }
