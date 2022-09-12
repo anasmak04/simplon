@@ -1,5 +1,7 @@
 package com.example.SoussHealthOnlineStore.Step1.entities;
 
+import java.util.List;
+
 import javax.persistence.*;
 import lombok.*;
 
@@ -10,7 +12,16 @@ import lombok.*;
 public class utilisateur {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "user_id")
+	private Long id;
 	private String username;
 	private String name;
 	private String password;
+	
+	@ManyToMany
+	@JoinTable(
+			  name = "commande", 
+			  joinColumns = @JoinColumn(name = "user_id"), 
+			  inverseJoinColumns = @JoinColumn(name = "prouits_id"))
+	private List<Produits> produits;
 }
