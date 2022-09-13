@@ -38,8 +38,8 @@ public class Produit{
 //	private Set<Integer> categories;
 
 	@ManyToMany
-	@JoinTable(name = "commande", joinColumns = @JoinColumn(name = "prouits_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
-	private List<utilisateur> utilisateurs;
+	@JoinTable(name = "commande", joinColumns = @JoinColumn(name = "produit_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
+	private List<Utilisateur> utilisateurs;
 
 	@ManyToOne
 	@JoinColumn(name = "categorie_id")
