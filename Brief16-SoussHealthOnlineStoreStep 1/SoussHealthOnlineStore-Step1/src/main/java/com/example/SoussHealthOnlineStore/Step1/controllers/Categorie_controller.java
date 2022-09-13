@@ -2,10 +2,11 @@ package com.example.SoussHealthOnlineStore.Step1.controllers;
 
 import java.util.List;
 
-import com.example.SoussHealthOnlineStore.Step1.entities.Categories;
+import com.example.SoussHealthOnlineStore.Step1.entities.Categorie;
 import com.example.SoussHealthOnlineStore.Step1.services.Categorie_service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,24 +23,26 @@ public class Categorie_controller {
 	private Categorie_service categorie_service;
 
 	@GetMapping("/{id_categorie}")
-	public Categories getCategorieId(@PathVariable Long id_categorie) {
-		Categories categorie = categorie_service.getById(id_categorie);
+	public Categorie getCategorieId(@PathVariable Long id_categorie) {
+		Categorie categorie = categorie_service.getById(id_categorie);
 		return categorie;
 	}
 
 	@GetMapping()
-	public List<Categories> getAllCategories() {
+	public List<Categorie> getAllCategories() {
 		return categorie_service.getall();
 	}
 
-	@PostMapping()
-	public Categories InsertCategorie(@RequestBody Categories categories) {
-		Categories categorie = categorie_service.save(categories);
-		return categorie;
-	}
+	@PostMapping(consumes = {"*/*"}) 
+
+	public Categorie InsertCategorie(@RequestBody Categorie categorie) {
+		Categorie categorie1 = categorie_service.save(categorie);
+		return categorie1;
+	} 
 
 	@DeleteMapping("/{id_categorie}")
 	public void delete(@PathVariable Long id_categorie) {
 		categorie_service.delete(id_categorie);
 	}
+	
 }

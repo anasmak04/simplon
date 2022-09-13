@@ -23,5 +23,5 @@ public class utilisateur {
 			  name = "commande", 
 			  joinColumns = @JoinColumn(name = "user_id"), 
 			  inverseJoinColumns = @JoinColumn(name = "prouits_id"))
-	private List<Produits> produits;
+	private List<Produit> produit;
 }

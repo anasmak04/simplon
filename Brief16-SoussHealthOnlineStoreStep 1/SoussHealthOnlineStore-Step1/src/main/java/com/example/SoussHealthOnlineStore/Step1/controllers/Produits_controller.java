@@ -2,7 +2,7 @@ package com.example.SoussHealthOnlineStore.Step1.controllers;
 
 import java.util.List;
 
-import com.example.SoussHealthOnlineStore.Step1.entities.Produits;
+import com.example.SoussHealthOnlineStore.Step1.entities.Produit;
 import com.example.SoussHealthOnlineStore.Step1.services.Produit_service;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,19 +21,19 @@ public class Produits_controller {
 	Produit_service produit_service;
 
 	@GetMapping("/{id}")
-	public Produits getProduit(@PathVariable Long id) {
-		Produits produits = produit_service.getById(id);
-		return produits;
+	public Produit getProduit(@PathVariable Long id) {
+		Produit produit = produit_service.getById(id);
+		return produit;
 	}
 	
 	@GetMapping()
-	public List<Produits> getAllProduits(){
+	public List<Produit> getAllProduits(){
 		return produit_service.getall();
 	}
 	
 	@PostMapping()
-	public Produits InsertProduits(@RequestBody Produits produits) {
-		Produits produits1 = produit_service.save(produits);
+	public Produit InsertProduits(@RequestBody Produit produit) {
+		Produit produits1 = produit_service.save(produit);
 		return produits1;
 	}
 	

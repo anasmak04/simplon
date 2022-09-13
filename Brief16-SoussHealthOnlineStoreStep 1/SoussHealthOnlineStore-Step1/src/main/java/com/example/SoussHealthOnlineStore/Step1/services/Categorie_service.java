@@ -2,7 +2,7 @@ package com.example.SoussHealthOnlineStore.Step1.services;
 
 import java.util.List;
 
-import com.example.SoussHealthOnlineStore.Step1.entities.Categories;
+import com.example.SoussHealthOnlineStore.Step1.entities.Categorie;
 import com.example.SoussHealthOnlineStore.Step1.repositories.Categorie_repositorie;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,30 +17,30 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 @Service
-public class Categorie_service implements ServiceDao<Categories> {
+public class Categorie_service implements ServiceDao<Categorie> {
 	@Autowired
 	private Categorie_repositorie categorie_repositorie;
 
 	@Override
-	public List<Categories> getall() {
+	public List<Categorie> getall() {
 		return categorie_repositorie.findAll();
 	}
 
 	@Override
-	public Categories getById(Long id_categorie) {
+	public Categorie getById(Long id_categorie) {
 		return categorie_repositorie.findById(id_categorie)
 				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Resource Not found"));
 
 	}
 
 	@Override
-	public Categories save(Categories categories) {
-		Categories categories1 = categorie_repositorie.save(categories);
+	public Categorie save(Categorie categorie) {
+		Categorie categories1 = categorie_repositorie.save(categorie);
 		return categories1;
 	}
 
 	@Override
-	public void update(Long id_categorie, Categories categories) {
+	public void update(Long id_categorie, Categorie categorie) {
 
 	}
 
