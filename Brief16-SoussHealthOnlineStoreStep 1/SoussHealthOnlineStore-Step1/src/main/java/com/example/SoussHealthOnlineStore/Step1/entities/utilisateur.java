@@ -17,11 +17,8 @@ public class utilisateur {
 	private String username;
 	private String name;
 	private String password;
-	
+
 	@ManyToMany
-	@JoinTable(
-			  name = "commande", 
-			  joinColumns = @JoinColumn(name = "user_id"), 
-			  inverseJoinColumns = @JoinColumn(name = "prouits_id"))
+	@JoinTable(name = "commande", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "produit_id"))
 	private List<Produit> produit;
 }
