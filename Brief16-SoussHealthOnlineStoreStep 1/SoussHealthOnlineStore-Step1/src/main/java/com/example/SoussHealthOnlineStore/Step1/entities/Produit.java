@@ -34,10 +34,11 @@ public class Produit{
 	private Long id;
 	private String name;
 	private String description;
+	
 //	//enter id directly instead of object.
 //	private Set<Integer> categories;
 
-	@ManyToMany
+	@ManyToMany  
 	@JoinTable(name = "commande", joinColumns = @JoinColumn(name = "produit_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
 	private List<Utilisateur> utilisateurs;
 
